@@ -41,6 +41,8 @@ fun StartScreen(
     modifier: Modifier = Modifier
 ) {
 
+    val lightBlue = Color(0xFFADD8E6)
+
     Box(modifier = modifier.fillMaxSize()) {
 
         Column(
@@ -90,7 +92,7 @@ fun StartScreen(
                 Modifier
                     .widthIn(min = 250.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.Cyan.copy(alpha = 1.0f),
+                    containerColor = lightBlue,
                     contentColor = Color.Black
                 ),
 

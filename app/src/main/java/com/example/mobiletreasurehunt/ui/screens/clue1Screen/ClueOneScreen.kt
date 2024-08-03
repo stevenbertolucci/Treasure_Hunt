@@ -1,14 +1,17 @@
 package com.example.mobiletreasurehunt.ui.screens.clue1Screen
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -17,6 +20,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import com.example.mobiletreasurehunt.R
@@ -24,78 +28,57 @@ import com.example.mobiletreasurehunt.model.Clues
 
 @Composable
 fun ClueOneScreen(
-    options: List<Clues.ClueNumberOne>,
+    clue: Clues.ClueNumberOne,
     modifier: Modifier = Modifier,
     onCancelButtonClicked: () -> Unit = {},
     onNextButtonClicked: (Clues.ClueNumberOne) -> Unit = {},
     onSelectionChanged: (Clues.ClueNumberOne) -> Unit
 ) {
     var selectedItem by rememberSaveable { mutableStateOf("") }
+    val lessIntenseRed = Color(0xFFFF5555)
 
-    Column(
-        modifier = modifier) {
-        options.forEach { item ->
-            val onClick = {
-                selectedItem = item.description
-                onSelectionChanged(item)
-                onNextButtonClicked(item)
-            }
-            MenuItemRow(
-                item = item,
-                selectedItem = selectedItem,
-                onClick = onClick,
-                modifier = Modifier.clickable(onClick = onClick)
-            )
-        }
-
-        CancelButtonGroup(
-            onCancelButtonClicked = onCancelButtonClicked,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(dimensionResource(R.dimen.padding_medium))
-        )
-    }
-}
-
-@Composable
-fun MenuItemRow(
-    item: Clues.ClueNumberOne,
-    selectedItem: String,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-
-    Column(
+    Box(
         modifier = modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .padding(dimensionResource(R.dimen.padding_medium))
-            .clickable(onClick = onClick),
-        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small)),
-        horizontalAlignment = Alignment.Start
     ) {
+        Column {
+            // Display the clue in a card
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(dimensionResource(R.dimen.padding_small))
+            ) {
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(dimensionResource(R.dimen.padding_medium))
+                ) {
+                    Text(text = clue.description)
+                }
+            }
 
-        Text(
-            text = item.description,
-            style = MaterialTheme.typography.headlineSmall
-        )
-        HorizontalDivider(
-            modifier = Modifier.padding(bottom = dimensionResource(R.dimen.padding_medium)),
-            thickness = dimensionResource(R.dimen.thickness_divider)
-        )
-    }
-}
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
 
-@Composable
-fun CancelButtonGroup(
-    onCancelButtonClicked: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    Row(
-        modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium))
-    ){
-        OutlinedButton(modifier = Modifier.weight(1f), onClick = onCancelButtonClicked) {
-            Text(stringResource(R.string.cancel).uppercase())
+            // Quit button
+            Button(
+                onClick = onCancelButtonClicked,
+                colors = ButtonDefaults.buttonColors(containerColor = lessIntenseRed),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(text = stringResource(R.string.quit))
+            }
+
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+
+            // Found It! button
+            Button(
+                onClick = { onNextButtonClicked(clue) },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(text = stringResource(R.string.found_it))
+            }
         }
     }
 }

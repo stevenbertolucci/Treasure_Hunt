@@ -5,5 +5,8 @@
     <string name="submit">Submit</string>
     <string name="start">Start Treasure Hunt</string>
     <string name="clue_1">Clue #1</string>
-    <string name="clue_1_description">One does not simply walk to Mordor</string>
+    <string name="clue_1_description">One does not simply walk to Mordor.</string>
+    <string name="next">Next</string>
+    <string name="quit">QUIT</string>
+    <string name="found_it">FOUND IT!</string>
 </resources>

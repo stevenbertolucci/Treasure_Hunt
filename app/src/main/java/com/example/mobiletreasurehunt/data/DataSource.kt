@@ -5,7 +5,5 @@ import com.example.mobiletreasurehunt.model.Clues
 
 object DataSource {
 
-    val listOfClues = listOf(
-        Clues.ClueNumberOne(description = R.string.clue_1_description.toString()),
-    )
+    val clue = Clues.ClueNumberOne(description = "One does not simply walk into Mordor.")
 }

@@ -23,6 +23,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -53,7 +54,6 @@ fun TreasureHuntAppBar(
     CenterAlignedTopAppBar(
         title = { Text(stringResource(currentScreenTitle)) },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
-            //containerColor = MaterialTheme.colorScheme.primaryContainer
             containerColor = Color.Cyan.copy(alpha = 0.1f)
         ),
         modifier = modifier,
@@ -72,7 +72,7 @@ fun TreasureHuntAppBar(
 
 @Composable
 fun TreasureHuntApp() {
-// TODO: Create Controller and initialization
+
     // Create ViewModel
     val viewModel: TreasureHuntViewModel = viewModel()
     val navController: NavHostController = rememberNavController()
@@ -87,7 +87,7 @@ fun TreasureHuntApp() {
 
     Scaffold(
         topBar = {
-            // TODO: AppBar
+
             TreasureHuntAppBar(
                 currentScreenTitle = currentScreen.title,
                 canNavigateBack = navController.previousBackStackEntry != null,
@@ -96,7 +96,6 @@ fun TreasureHuntApp() {
         }
     ) { innerPadding ->
 
-        // TODO: Navigation host
         NavHost(
             navController = navController,
             startDestination = TreasureHuntScreen.Start.name,
@@ -117,22 +116,18 @@ fun TreasureHuntApp() {
             // Clue #1 Screen Composable
             composable(route = TreasureHuntScreen.Clue1Screen.name) {
                 ClueOneScreen(
-                    options = DataSource.listOfClues,
+                    clue = DataSource.clue,
                     onCancelButtonClicked = {
                         viewModel.reset()
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
-                    onNextButtonClicked = {
+                    onNextButtonClicked = { clue ->
                         val category = viewModel.uiState.value.selectedClue
-//                        val nextScreen = when (category) {
-//                            "Restaurants" -> SanDiegoSpotsScreen.Restaurants.name
-//                            "Coffee Shops" -> SanDiegoSpotsScreen.CoffeeShops.name
-//                            "Parks" -> SanDiegoSpotsScreen.Parks.name
-//                            "Sport Venues" -> SanDiegoSpotsScreen.SportsVenue.name
-//                            "Beaches" -> SanDiegoSpotsScreen.Beaches.name
-//                            else -> SanDiegoSpotsScreen.Category.name
-//                        }
-                        //navController.navigate(nextScreen)
+                        val nextScreen = when (category) {
+                            "ClueNumberOne" -> TreasureHuntScreen.Clue1Screen.name
+                            else -> TreasureHuntScreen.Clue1Screen.name
+                        }
+                        navController.navigate(nextScreen)
                     },
                     onSelectionChanged = { item -> viewModel.updateClue(item.description)},
                     modifier = Modifier
@@ -306,4 +301,10 @@ fun TreasureHuntApp() {
 //            }
           }
       }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TreasureHuntAppPreview() {
+    TreasureHuntApp()
 }
