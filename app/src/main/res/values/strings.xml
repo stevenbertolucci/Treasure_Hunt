@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Mobile Treasure Hunt</string>
+    <string name="back_button">Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="start">Start Treasure Hunt</string>
+    <string name="clue_1">Clue #1</string>
+    <string name="clue_1_description">One does not simply walk to Mordor</string>
 </resources>

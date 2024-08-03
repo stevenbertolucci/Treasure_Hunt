@@ -16,21 +16,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MobileTreasureHuntTheme {
-                TreasureHunt()
+                TreasureHuntApp()
             }
         }
-    }
-}
-
-@Composable
-fun TreasureHunt() {
-
-}
-
-@Preview(showBackground = true)
-@Composable
-fun TreasureHuntPreview() {
-    MobileTreasureHuntTheme {
-        TreasureHunt()
     }
 }
