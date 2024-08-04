@@ -2,7 +2,7 @@
 // Course: CS 492 - Mobile Application Development
 // Institution: Oregon State University
 
-package com.example.mobiletreasurehunt.ui.screens.clue2Screen
+package com.example.mobiletreasurehunt.ui.screens.clue2
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

@@ -2,7 +2,7 @@
 // Course: CS 492 - Mobile Application Development
 // Institution: Oregon State University
 
-package com.example.mobiletreasurehunt.ui.screens.congratulationScreen
+package com.example.mobiletreasurehunt.ui.screens.congratulation
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

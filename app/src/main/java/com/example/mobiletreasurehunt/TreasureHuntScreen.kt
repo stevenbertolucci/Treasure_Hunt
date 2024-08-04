@@ -33,10 +33,10 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mobiletreasurehunt.data.DataSource
 import com.example.mobiletreasurehunt.model.TreasureHuntViewModel
-import com.example.mobiletreasurehunt.ui.screens.clue1Screen.ClueOneScreen
-import com.example.mobiletreasurehunt.ui.screens.clue2Screen.ClueTwoScreen
-import com.example.mobiletreasurehunt.ui.screens.congratulationScreen.CongratulationScreen
-import com.example.mobiletreasurehunt.ui.screens.startScreen.StartScreen
+import com.example.mobiletreasurehunt.ui.screens.clue1.ClueOneScreen
+import com.example.mobiletreasurehunt.ui.screens.clue2.ClueTwoScreen
+import com.example.mobiletreasurehunt.ui.screens.congratulation.CongratulationScreen
+import com.example.mobiletreasurehunt.ui.screens.start.StartScreen
 
 enum class TreasureHuntScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
