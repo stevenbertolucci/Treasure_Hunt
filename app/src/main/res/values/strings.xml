@@ -15,4 +15,5 @@
     <string name="hint_clue_1">Reveal Hint for Clue #1</string>
     <string name="hint_description">From Fast and the Furious Movie</string>
     <string name="ok">OK</string>
+    <string name="permission">App Permission</string>
 </resources>

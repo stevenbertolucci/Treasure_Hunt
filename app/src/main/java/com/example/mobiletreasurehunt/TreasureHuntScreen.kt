@@ -23,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -37,9 +38,11 @@ import com.example.mobiletreasurehunt.ui.screens.clue1.ClueOneScreen
 import com.example.mobiletreasurehunt.ui.screens.clue2.ClueTwoScreen
 import com.example.mobiletreasurehunt.ui.screens.congratulation.CongratulationScreen
 import com.example.mobiletreasurehunt.ui.screens.start.StartScreen
+import com.example.mobiletreasurehunt.ui.screens.requestPermission.RequestPermissionScreen
 
 enum class TreasureHuntScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
+    Permission(title = R.string.permission),
     Clue1Screen(title = R.string.clue_1),
     Clue2Screen(title = R.string.clue_2),
     Congratulation(title = R.string.congratulation)
@@ -103,8 +106,23 @@ fun TreasureHuntApp() {
 
         NavHost(
             navController = navController,
-            startDestination = TreasureHuntScreen.Start.name,
+            startDestination = TreasureHuntScreen.Permission.name,
         ) {
+
+            // Permission Screen Composable
+            composable(route = TreasureHuntScreen.Permission.name) {
+
+                RequestPermissionScreen(
+                    onStartButtonClicked = {
+                        navController.navigate(TreasureHuntScreen.Start.name) {
+                            popUpTo(TreasureHuntScreen.Permission.name) { inclusive = true }
+                        }
+                    },
+                    modifier = Modifier
+                        .verticalScroll(rememberScrollState())
+                        .padding(innerPadding)
+                )
+            }
 
             // Start Screen Composable
             composable(route = TreasureHuntScreen.Start.name) {
@@ -137,6 +155,7 @@ fun TreasureHuntApp() {
                         navController.navigate(nextScreen)
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description)},
+                    context = LocalContext.current,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -175,22 +194,7 @@ fun TreasureHuntApp() {
                         .padding(innerPadding)
                 )
             }
-//
-//            // Coffee Shops Screen Composable
-//            composable(route = SanDiegoSpotsScreen.CoffeeShops.name) {
-//
-//                ChooseCoffeeShopsScreen(
-//                    options = DataSource.listOfCoffeeShops,
-//                    onCancelButtonClicked = {
-//                        viewModel.reset()
-//                        navController.popBackStack(SanDiegoSpotsScreen.Category.name, inclusive = false) },
-//                    onNextButtonClicked = { navController.navigate(SanDiegoSpotsScreen.CoffeeShopsInfo.name) },
-//                    onSelectionChanged = { coffeeShop -> viewModel.updateSelectedCoffeeShop(coffeeShop as Recommendations.CoffeeShops)},
-//                    modifier = Modifier
-//                        .verticalScroll(rememberScrollState())
-//                        .padding(innerPadding)
-//                )
-//            }
+
 //
 //            // Coffee Shops Info Screen Composable
 //            composable(route = SanDiegoSpotsScreen.CoffeeShopsInfo.name) {
