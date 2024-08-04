@@ -129,7 +129,7 @@ fun TreasureHuntApp() {
                     onNextButtonClicked = { clue ->
                         viewModel.updateClue(clue.description)
                         val category = viewModel.uiState.value.selectedClue
-                        //Log.d("ClueNavigation", "Selected Clue Category: $category")
+                        Log.d("ClueNavigation", "Selected Clue Category: $category")
                         val nextScreen = when (category) {
                             "One does not simply walk into Mordor." -> TreasureHuntScreen.Clue2Screen.name
                             else -> TreasureHuntScreen.Clue1Screen.name
