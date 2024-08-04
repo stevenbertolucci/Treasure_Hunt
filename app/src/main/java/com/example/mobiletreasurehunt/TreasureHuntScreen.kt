@@ -4,6 +4,7 @@
 
 package com.example.mobiletreasurehunt
 
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -33,11 +34,15 @@ import androidx.navigation.compose.rememberNavController
 import com.example.mobiletreasurehunt.data.DataSource
 import com.example.mobiletreasurehunt.model.TreasureHuntViewModel
 import com.example.mobiletreasurehunt.ui.screens.clue1Screen.ClueOneScreen
+import com.example.mobiletreasurehunt.ui.screens.clue2Screen.ClueTwoScreen
+import com.example.mobiletreasurehunt.ui.screens.congratulationScreen.CongratulationScreen
 import com.example.mobiletreasurehunt.ui.screens.startScreen.StartScreen
 
 enum class TreasureHuntScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
     Clue1Screen(title = R.string.clue_1),
+    Clue2Screen(title = R.string.clue_2),
+    Congratulation(title = R.string.congratulation)
 }
 
 /**
@@ -122,52 +127,54 @@ fun TreasureHuntApp() {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
                     onNextButtonClicked = { clue ->
+                        viewModel.updateClue(clue.description)
                         val category = viewModel.uiState.value.selectedClue
+                        //Log.d("ClueNavigation", "Selected Clue Category: $category")
                         val nextScreen = when (category) {
-                            "ClueNumberOne" -> TreasureHuntScreen.Clue1Screen.name
+                            "One does not simply walk into Mordor." -> TreasureHuntScreen.Clue2Screen.name
                             else -> TreasureHuntScreen.Clue1Screen.name
                         }
                         navController.navigate(nextScreen)
                     },
-                    onSelectionChanged = { item -> viewModel.updateClue(item.description)},
+                    onSelectionChanged = { clue -> viewModel.updateClue(clue.description)},
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
                 )
             }
-//
-//            // Restaurant Screen Composable
-//            composable(route = SanDiegoSpotsScreen.Restaurants.name) {
-//
-//                ChooseRestaurantsScreen(
-//                    options = DataSource.listOfRestaurants,
-//                    onCancelButtonClicked = {
-//                        viewModel.reset()
-//                        navController.popBackStack(SanDiegoSpotsScreen.Category.name, inclusive = false)
-//                    },
-//                    onNextButtonClicked = { navController.navigate(SanDiegoSpotsScreen.RestaurantsInfo.name) },
-//                    onSelectionChanged = { restaurant -> viewModel.updateSelectedRestaurant(restaurant as Recommendations.Restaurants)},
-//                    modifier = Modifier
-//                        .verticalScroll(rememberScrollState())
-//                        .padding(innerPadding)
-//                )
-//            }
-//
-//            // Restaurant's Info Screen Composable
-//            composable(route = SanDiegoSpotsScreen.RestaurantsInfo.name) {
-//
-//                val selectedRestaurant by viewModel.selectedRestaurant.collectAsState()
-//
-//                ShowRestaurantsInfoScreen(
-//                    restaurant = selectedRestaurant,
-//                    onCancelButtonClicked = {
-//                        viewModel.reset()
-//                        navController.popBackStack(SanDiegoSpotsScreen.Category.name, inclusive = false) },
-//                    modifier = Modifier
-//                        .verticalScroll(rememberScrollState())
-//                        .padding(innerPadding)
-//                )
-//            }
+
+            // Clue #2 Screen Composable
+            composable(route = TreasureHuntScreen.Clue2Screen.name) {
+
+                ClueTwoScreen(
+                    clue = DataSource.clueTwo,
+                    onCancelButtonClicked = {
+                        viewModel.reset()
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
+                    },
+                    onNextButtonClicked = {
+                        val nextScreen = TreasureHuntScreen.Congratulation.name
+                        navController.navigate(nextScreen)
+                    },
+                    onSelectionChanged = { clue -> viewModel.updateClue(clue.description)},
+                    modifier = Modifier
+                        .verticalScroll(rememberScrollState())
+                        .padding(innerPadding)
+                )
+            }
+
+            // Congratulations Screen Composable
+            composable(route = TreasureHuntScreen.Congratulation.name) {
+
+                CongratulationScreen(
+                    onCancelButtonClicked = {
+                        viewModel.reset()
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false) },
+                    modifier = Modifier
+                        .verticalScroll(rememberScrollState())
+                        .padding(innerPadding)
+                )
+            }
 //
 //            // Coffee Shops Screen Composable
 //            composable(route = SanDiegoSpotsScreen.CoffeeShops.name) {
