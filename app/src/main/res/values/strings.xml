@@ -12,4 +12,7 @@
     <string name="next">Next</string>
     <string name="quit">QUIT</string>
     <string name="found_it">FOUND IT!</string>
+    <string name="hint_clue_1">Reveal Hint for Clue #1</string>
+    <string name="hint_description">From Fast and the Furious Movie</string>
+    <string name="ok">OK</string>
 </resources>
