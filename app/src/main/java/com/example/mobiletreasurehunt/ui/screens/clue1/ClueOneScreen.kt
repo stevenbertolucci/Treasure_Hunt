@@ -57,24 +57,24 @@ import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.Task
 import kotlinx.coroutines.launch
 
-@Composable
-fun MainScreen() {
-    var permissionGranted by remember { mutableStateOf(false) }
-
-    if (permissionGranted) {
-        ClueOneScreen(
-            clue = DataSource.clue,
-            onCancelButtonClicked = {},
-            onNextButtonClicked = {},
-            onSelectionChanged = {},
-            context = LocalContext.current
-        )
-    } else {
-        RequestPermissionScreen(
-            onPermissionGranted = { permissionGranted = true }
-        )
-    }
-}
+//@Composable
+//fun MainScreen() {
+//    var permissionGranted by remember { mutableStateOf(false) }
+//
+//    if (permissionGranted) {
+//        ClueOneScreen(
+//            clue = DataSource.clue,
+//            onCancelButtonClicked = {},
+//            onNextButtonClicked = {},
+//            onSelectionChanged = {},
+//            context = LocalContext.current
+//        )
+//    } else {
+//        RequestPermissionScreen(
+//            onPermissionGranted = { permissionGranted = true }
+//        )
+//    }
+//}
 
 @Composable
 fun ClueOneScreen(
@@ -111,8 +111,11 @@ fun ClueOneScreen(
 
     @SuppressLint("MissingPermission")
     fun getCurrentLocation(onLocationReceived: (Location?) -> Unit) {
+
         if (locationPermissionGranted) {
+
             val locationTask: Task<Location> = fusedLocationClient.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, null)
+
             locationTask.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val location = task.result
@@ -148,8 +151,6 @@ fun ClueOneScreen(
             .padding(dimensionResource(R.dimen.padding_medium))
     ) {
         Column {
-            val image: Painter = painterResource(id = R.drawable.brian_oconnor)
-
             // Display the clue in a card
             Card(
                 modifier = Modifier
@@ -177,6 +178,7 @@ fun ClueOneScreen(
                 }
             }
 
+            val image: Painter = painterResource(id = R.drawable.brian_oconnor)
             Image(
                 painter = image,
                 contentDescription = stringResource(R.string.connor_quote),

@@ -6,15 +6,18 @@
     <string name="start">Start Treasure Hunt</string>
     <string name="clue_1">Clue #1</string>
     <string name="clue_2">Clue #2</string>
-    <string name="congratulation">Congratulations</string>
-    <string name="clue_2_description">Ask any racer, any real racer. It dont matter if you win by an inch or a mile. Winnings winning.</string>
+    <string name="clue_info">More Clue Information</string>
+    <string name="clue_2_description">The race itself (where Paul loses his car) was held on Prairie Avenue in the city of Hawthorne, a good 15 miles southwest of the Produce Market. The street runs north and south, past the western edge of the Hawthorne Airport. They were racing north on Prairie, starting at Prairie and 120th Street, and finishing at Prairie and 118th Street (just south of the 105 Freeway).They also filmed some of the pre &amp; post race scenes south of 120th. \n\nReference: (https://www.seeing-stars.com/Locations/FastAndFurious.shtml)</string>
     <string name="clue_1_description">One does not simply walk to Mordor.</string>
     <string name="next">Next</string>
     <string name="quit">QUIT</string>
+    <string name="home">Home</string>
     <string name="found_it">FOUND IT!</string>
     <string name="hint_clue_1">Reveal Hint for Clue #1</string>
+    <string name="hint_clue_2">Reveal Hint for Clue #2</string>
     <string name="hint_description">This is one of the legendary memes from The Fast and the Furious Movie. This hint points to the location of the \'He\'s a Cop!\' scene where Brian O\'Conner tries to escape alive while being interrogated by Toretto and Vince. See image.</string>
     <string name="ok">OK</string>
     <string name="permission">App Permission</string>
     <string name="connor_quote">Quote from the legendary Fast and the Furious movie</string>
+    <string name="hint_description2">When Brian O\'Conner lost his 10-second car to Toretto in their first race together, O\'Conner said he \'almost had him\' referring that he almost beat a racing legend. Toretto put O\'Conner in his place with this iconic quote. This hint points to the location where this quote was spoken.</string>
 </resources>

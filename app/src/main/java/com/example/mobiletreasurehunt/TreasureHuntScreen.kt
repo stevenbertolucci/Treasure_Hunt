@@ -45,7 +45,7 @@ enum class TreasureHuntScreen(@StringRes val title: Int) {
     Permission(title = R.string.permission),
     Clue1Screen(title = R.string.clue_1),
     Clue2Screen(title = R.string.clue_2),
-    Congratulation(title = R.string.congratulation)
+    Congratulation(title = R.string.clue_info)
 }
 
 /**
@@ -141,7 +141,6 @@ fun TreasureHuntApp() {
                 ClueOneScreen(
                     clue = DataSource.clue,
                     onCancelButtonClicked = {
-                        //viewModel.reset()
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
                     onNextButtonClicked = { clue ->
@@ -168,14 +167,14 @@ fun TreasureHuntApp() {
                 ClueTwoScreen(
                     clue = DataSource.clueTwo,
                     onCancelButtonClicked = {
-                        viewModel.reset()
-                        navController.popBackStack(TreasureHuntScreen.Permission.name, inclusive = false)
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
                     onNextButtonClicked = {
                         val nextScreen = TreasureHuntScreen.Congratulation.name
                         navController.navigate(nextScreen)
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description)},
+                    context = LocalContext.current,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -187,7 +186,6 @@ fun TreasureHuntApp() {
 
                 CongratulationScreen(
                     onCancelButtonClicked = {
-                        viewModel.reset()
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false) },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
