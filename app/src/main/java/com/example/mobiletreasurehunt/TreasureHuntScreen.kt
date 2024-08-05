@@ -113,7 +113,7 @@ fun TreasureHuntApp() {
             composable(route = TreasureHuntScreen.Permission.name) {
 
                 RequestPermissionScreen(
-                    onStartButtonClicked = {
+                    onPermissionGranted = {
                         navController.navigate(TreasureHuntScreen.Start.name) {
                             popUpTo(TreasureHuntScreen.Permission.name) { inclusive = true }
                         }

@@ -9,6 +9,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
+import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Box
@@ -47,10 +48,30 @@ import com.example.mobiletreasurehunt.R
 import com.example.mobiletreasurehunt.data.DataSource
 import com.example.mobiletreasurehunt.haversine.Haversine
 import com.example.mobiletreasurehunt.model.Clues
+import com.example.mobiletreasurehunt.ui.screens.requestPermission.RequestPermissionScreen
 import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.Task
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+
+@Composable
+fun MainScreen() {
+    var permissionGranted by remember { mutableStateOf(false) }
+
+    if (permissionGranted) {
+        ClueOneScreen(
+            clue = DataSource.clue,
+            onCancelButtonClicked = {},
+            onNextButtonClicked = {},
+            onSelectionChanged = {},
+            context = LocalContext.current
+        )
+    } else {
+        RequestPermissionScreen(
+            onPermissionGranted = { permissionGranted = true }
+        )
+    }
+}
 
 @Composable
 fun ClueOneScreen(
@@ -61,7 +82,7 @@ fun ClueOneScreen(
     onSelectionChanged: (Clues.ClueNumberOne) -> Unit,
     context: Context,
 ) {
-    var selectedItem by rememberSaveable { mutableStateOf("") }
+    //var selectedItem by rememberSaveable { mutableStateOf("") }
     var showHintDialog by rememberSaveable { mutableStateOf(false) }
     var locationPermissionGranted by rememberSaveable { mutableStateOf(false) }
     val lessIntenseRed = Color(0xFFFF5555)
@@ -89,25 +110,31 @@ fun ClueOneScreen(
     @SuppressLint("MissingPermission")
     fun getCurrentLocation(onLocationReceived: (Location?) -> Unit) {
         if (locationPermissionGranted) {
-            val locationTask: Task<Location> = fusedLocationClient.lastLocation
+            val locationTask: Task<Location> = fusedLocationClient.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, null)
             locationTask.addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                onLocationReceived(task.result)
-            } else {
-                onLocationReceived(null)
+                if (task.isSuccessful) {
+                    val location = task.result
+                    Log.d("Location", "User location: ${location?.latitude}, ${location?.longitude}")
+                    onLocationReceived(location)
+                } else {
+                    onLocationReceived(null)
+                }
             }
+        } else {
+            onLocationReceived(null)
         }
-    } else {
-        onLocationReceived(null)
     }
-}
 
     fun isLocationMatch(userLocation: Location?): Boolean {
-        val targetLocation = Haversine(37.422, -122.084)
+        val targetLocation = Haversine(37.4220, -122.0841)
 
         userLocation?.let {
             val userHaversineLocation = Haversine(it.latitude, it.longitude)
             val distance = userHaversineLocation.haversine(targetLocation)
+
+            // Add logging to check the calculated distance
+            Log.d("Location", "Distance to target: $distance km")
+
             return distance < 0.05 // 50 meters tolerance
         }
         return false
@@ -167,13 +194,16 @@ fun ClueOneScreen(
             Button(
                 onClick = {
                     getCurrentLocation { userLocation ->
-                        if (isLocationMatch(userLocation)) {
-                            onNextButtonClicked(clue)
-                        } else {
-
-                            // Show a message that the location does not match
-                            coroutineScope.launch {
-                                snackbarHostState.showSnackbar("Location does not match. Please try again.")
+                        coroutineScope.launch {
+                            if (userLocation == null) {
+                                snackbarHostState.showSnackbar("Failed to retrieve location. Please ensure location services are enabled and try again.")
+                            } else {
+                                snackbarHostState.showSnackbar("User location: ${userLocation.latitude}, ${userLocation.longitude}")
+                                if (isLocationMatch(userLocation)) {
+                                    onNextButtonClicked(clue)
+                                } else {
+                                    snackbarHostState.showSnackbar("Location does not match. Please try again.")
+                                }
                             }
                         }
                     }
@@ -186,7 +216,7 @@ fun ClueOneScreen(
 
         SnackbarHost(
             hostState = snackbarHostState,
-            modifier = Modifier.align(Alignment.BottomCenter)
+            modifier = Modifier.align(Alignment.Center)
         )
     }
 

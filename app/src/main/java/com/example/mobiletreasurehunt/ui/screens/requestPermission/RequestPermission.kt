@@ -21,7 +21,7 @@ import androidx.core.content.ContextCompat
 
 @Composable
 fun RequestPermissionScreen(
-    onStartButtonClicked: () -> Unit,
+    onPermissionGranted: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
@@ -32,7 +32,7 @@ fun RequestPermissionScreen(
         contract = ActivityResultContracts.RequestPermission(),
         onResult = { isGranted: Boolean ->
             if (isGranted) {
-                onStartButtonClicked()
+                onPermissionGranted()
             } else {
                 showPermissionDialog = true
             }
@@ -47,7 +47,7 @@ fun RequestPermissionScreen(
         ) {
             launcher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
         } else {
-            onStartButtonClicked()
+            onPermissionGranted()
         }
     }
 }
@@ -55,5 +55,5 @@ fun RequestPermissionScreen(
 @Preview(showBackground = true)
 @Composable
 fun PreviewRequestPermissionScreen() {
-    RequestPermissionScreen(onStartButtonClicked = {})
+    RequestPermissionScreen(onPermissionGranted = {})
 }

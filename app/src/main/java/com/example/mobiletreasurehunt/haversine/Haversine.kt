@@ -1,5 +1,7 @@
 package com.example.mobiletreasurehunt.haversine
 
+import kotlin.math.*
+
 class Haversine(private val lat: Double, private val lon: Double) {
 
     companion object {
@@ -21,8 +23,8 @@ class Haversine(private val lat: Double, private val lon: Double) {
         val originLat = Math.toRadians(this.lat);
         val destinationLat = Math.toRadians(destination.lat);
 
-        val a = Math.pow(Math.sin(dLat / 2), 2.toDouble()) + Math.pow(Math.sin(dLon / 2), 2.toDouble()) * Math.cos(originLat) * Math.cos(destinationLat);
-        val c = 2 * Math.asin(Math.sqrt(a));
+        val a = sin(dLat / 2).pow(2.toDouble()) + sin(dLon / 2).pow(2.toDouble()) * cos(originLat) * cos(destinationLat);
+        val c = 2 * asin(sqrt(a));
         return earthRadiusKm * c;
     }
 }

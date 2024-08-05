@@ -27,8 +27,6 @@ class TreasureHuntViewModel : ViewModel() {
     val locationVerified: StateFlow<Boolean> = _locationVerified
 
     fun verifyLocation(location: Location) {
-        // Add your location verification logic here
-        // If location is correct
         _locationVerified.value = true
     }
 
