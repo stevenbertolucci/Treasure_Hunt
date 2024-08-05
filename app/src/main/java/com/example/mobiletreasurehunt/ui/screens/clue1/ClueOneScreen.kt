@@ -131,7 +131,7 @@ fun ClueOneScreen(
     }
 
     fun isLocationMatch(userLocation: Location?): Boolean {
-        val targetLocation = Haversine(37.4220, -122.0841)
+        val targetLocation = Haversine(33.9166, -118.4120)
 
         userLocation?.let {
             val userHaversineLocation = Haversine(it.latitude, it.longitude)
@@ -190,7 +190,7 @@ fun ClueOneScreen(
 
             Spacer(
                 modifier = Modifier
-                    .height(50.dp),
+                    .height(70.dp),
             )
 
             // Quit button
@@ -202,7 +202,7 @@ fun ClueOneScreen(
                 Text(text = stringResource(R.string.quit))
             }
 
-            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+            Spacer(modifier = Modifier.height(8.dp))
 
             // Found It! button
             val coroutineScope = rememberCoroutineScope()

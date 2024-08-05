@@ -1,8 +1,4 @@
-// Author: Steven Bertolucci
-// Course: CS 492 - Mobile Application Development
-// Institution: Oregon State University
-
-package com.example.mobiletreasurehunt.ui.screens.clue2
+package com.example.mobiletreasurehunt.ui.screens.clue3
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -49,6 +45,8 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.example.mobiletreasurehunt.R
 import com.example.mobiletreasurehunt.data.DataSource
+import com.example.mobiletreasurehunt.data.DataSource.clueThree
+import com.example.mobiletreasurehunt.data.DataSource.clueTwo
 import com.example.mobiletreasurehunt.haversine.Haversine
 import com.example.mobiletreasurehunt.model.Clues
 import com.example.mobiletreasurehunt.ui.screens.requestPermission.RequestPermissionScreen
@@ -58,12 +56,12 @@ import com.google.android.gms.tasks.Task
 import kotlinx.coroutines.launch
 
 @Composable
-fun ClueTwoScreen(
-    clue: Clues.ClueNumberTwo,
+fun ClueThreeScreen(
+    clue: Clues.ClueNumberThree,
     modifier: Modifier = Modifier,
     onCancelButtonClicked: () -> Unit = {},
-    onNextButtonClicked: (Clues.ClueNumberTwo) -> Unit = {},
-    onSelectionChanged: (Clues.ClueNumberTwo) -> Unit,
+    onNextButtonClicked: (Clues.ClueNumberThree) -> Unit = {},
+    onSelectionChanged: (Clues.ClueNumberThree) -> Unit,
     context: Context,
 ) {
     var showHintDialog by rememberSaveable { mutableStateOf(false) }
@@ -114,7 +112,7 @@ fun ClueTwoScreen(
     // Location of this clue
     fun isLocationMatch(userLocation: Location?): Boolean {
 
-        val targetLocation = Haversine(33.927063, -118.343913)
+        val targetLocation = Haversine(34.0739, -118.2400)
 
         userLocation?.let {
             val userHaversineLocation = Haversine(it.latitude, it.longitude)
@@ -145,7 +143,7 @@ fun ClueTwoScreen(
                     modifier = Modifier
                         .padding(dimensionResource(R.dimen.padding_medium))
                 ) {
-                    Text(text = clue.description)
+                    Text(text = clueThree.description)
                 }
             }
 
@@ -157,23 +155,23 @@ fun ClueTwoScreen(
                     onClick = { showHintDialog = true },
                     modifier = Modifier.wrapContentWidth()
                 ) {
-                    Text(text = stringResource(R.string.hint_clue_2))
+                    Text(text = stringResource(R.string.hint_clue_3))
                 }
             }
 
-            val image: Painter = painterResource(id = R.drawable.winningswinning)
+            val image: Painter = painterResource(id = R.drawable.dodger_stadium)
             Image(
                 painter = image,
-                contentDescription = stringResource(R.string.connor_quote),
+                contentDescription = stringResource(R.string.dodgers_stadium),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(270.dp)
+                    .height(180.dp)
                     .padding(dimensionResource(R.dimen.padding_small))
             )
 
             Spacer(
                 modifier = Modifier
-                    .height(200.dp),
+                    .height(290.dp),
             )
 
             // Quit button
@@ -230,7 +228,7 @@ fun ClueTwoScreen(
                 }
             },
             text = {
-                Text(text = stringResource(R.string.hint_description2))
+                Text(text = stringResource(R.string.clue_3_description))
             }
         )
     }
@@ -238,9 +236,9 @@ fun ClueTwoScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewClueTwoScreen() {
-    ClueTwoScreen(
-        clue = DataSource.clueTwo,
+fun PreviewClueThreeScreen() {
+    ClueThreeScreen(
+        clue = DataSource.clueThree,
         onCancelButtonClicked = {},
         onNextButtonClicked = {},
         onSelectionChanged = {},

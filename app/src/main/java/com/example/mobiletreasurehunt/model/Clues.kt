@@ -14,4 +14,8 @@ sealed class Clues (
     data class ClueNumberTwo(
         override val description: String,
     ) : Clues(description)
+
+    data class ClueNumberThree(
+        override val description: String,
+    ) : Clues(description)
 }

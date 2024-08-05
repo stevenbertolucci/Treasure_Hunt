@@ -33,9 +33,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.mobiletreasurehunt.data.DataSource
+import com.example.mobiletreasurehunt.data.DataSource.clue
 import com.example.mobiletreasurehunt.model.TreasureHuntViewModel
+import com.example.mobiletreasurehunt.ui.screens.clue1.ClueOneInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue1.ClueOneScreen
+import com.example.mobiletreasurehunt.ui.screens.clue2.ClueTwoInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue2.ClueTwoScreen
+import com.example.mobiletreasurehunt.ui.screens.clue3.ClueThreeScreen
 import com.example.mobiletreasurehunt.ui.screens.congratulation.CongratulationScreen
 import com.example.mobiletreasurehunt.ui.screens.start.StartScreen
 import com.example.mobiletreasurehunt.ui.screens.requestPermission.RequestPermissionScreen
@@ -45,7 +49,10 @@ enum class TreasureHuntScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
     Permission(title = R.string.permission),
     Clue1Screen(title = R.string.clue_1),
+    Clue1InfoScreen(title = R.string.clue_info),
     Clue2Screen(title = R.string.clue_2),
+    Clue2InfoScreen(title = R.string.clue_info),
+    Clue3Screen(title =R.string.clue_3),
     Congratulation(title = R.string.clue_info)
 }
 
@@ -152,7 +159,7 @@ fun TreasureHuntApp() {
                         val category = viewModel.uiState.value.selectedClue
                         Log.d("ClueNavigation", "Selected Clue Category: $category")
                         val nextScreen = when (category) {
-                            "\"I just went in there, and Hector is going to be running 3 Honda Civics with spoon engines. And on top of that, he just went into Harry's, and he ordered 3 T66 turbos, with NOS... and a Motec system exhaust.\"" -> TreasureHuntScreen.Clue2Screen.name
+                            "\"I just went in there, and Hector is going to be running 3 Honda Civics with spoon engines. And on top of that, he just went into Harry's, and he ordered 3 T66 turbos, with NOS... and a Motec system exhaust.\"" -> TreasureHuntScreen.Clue1InfoScreen.name
                             else -> TreasureHuntScreen.Clue1Screen.name
                         }
                         navController.navigate(nextScreen)
@@ -165,11 +172,75 @@ fun TreasureHuntApp() {
                 )
             }
 
+            // Clue #1 Info Screen Composable
+            composable(route = TreasureHuntScreen.Clue1InfoScreen.name) {
+
+                ClueOneInfoScreen(
+                    onNextButtonClicked = {
+                        viewModel.updateClue(clue.description)
+                        val category = viewModel.uiState.value.selectedClue
+                        Log.d("Category", "Category: $category")
+                        val nextScreen = when (category) {
+                            "\"I just went in there, and Hector is going to be running 3 Honda Civics with spoon engines. And on top of that, he just went into Harry's, and he ordered 3 T66 turbos, with NOS... and a Motec system exhaust.\"" -> TreasureHuntScreen.Clue2Screen.name
+                            else -> TreasureHuntScreen.Clue1Screen.name
+                        }
+                        navController.navigate(nextScreen)
+                    },
+                    onCancelButtonClicked = {
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false) },
+                    modifier = Modifier
+                        .verticalScroll(rememberScrollState())
+                        .padding(innerPadding)
+                )
+            }
+
             // Clue #2 Screen Composable
             composable(route = TreasureHuntScreen.Clue2Screen.name) {
 
                 ClueTwoScreen(
                     clue = DataSource.clueTwo,
+                    onCancelButtonClicked = {
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
+                    },
+                    onNextButtonClicked = {
+                        val nextScreen = TreasureHuntScreen.Clue2InfoScreen.name
+                        navController.navigate(nextScreen)
+                    },
+                    onSelectionChanged = { clue -> viewModel.updateClue(clue.description)},
+                    context = LocalContext.current,
+                    modifier = Modifier
+                        .verticalScroll(rememberScrollState())
+                        .padding(innerPadding)
+                )
+            }
+
+            // Clue #2 Info Screen Composable
+            composable(route = TreasureHuntScreen.Clue2InfoScreen.name) {
+
+                ClueTwoInfoScreen(
+                    onNextButtonClicked = {
+                        viewModel.updateClue(clue.description)
+                        val category = viewModel.uiState.value.selectedClue
+                        Log.d("Category", "Category: $category")
+                        val nextScreen = when (category) {
+                            "\"I just went in there, and Hector is going to be running 3 Honda Civics with spoon engines. And on top of that, he just went into Harry's, and he ordered 3 T66 turbos, with NOS... and a Motec system exhaust.\"" -> TreasureHuntScreen.Clue3Screen.name
+                            else -> TreasureHuntScreen.Clue2Screen.name
+                        }
+                        navController.navigate(nextScreen)
+                    },
+                    onCancelButtonClicked = {
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false) },
+                    modifier = Modifier
+                        .verticalScroll(rememberScrollState())
+                        .padding(innerPadding)
+                )
+            }
+
+            // Clue #3 Screen Composable
+            composable(route = TreasureHuntScreen.Clue3Screen.name) {
+
+                ClueThreeScreen(
+                    clue = DataSource.clueThree,
                     onCancelButtonClicked = {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
@@ -197,22 +268,7 @@ fun TreasureHuntApp() {
                 )
             }
 
-//
-//            // Coffee Shops Info Screen Composable
-//            composable(route = SanDiegoSpotsScreen.CoffeeShopsInfo.name) {
-//
-//                val selectedCoffeeShop by viewModel.selectedCoffeeShop.collectAsState()
-//
-//                ShowCoffeeShopsInfoScreen(
-//                    coffeeShop = selectedCoffeeShop,
-//                    onCancelButtonClicked = {
-//                        viewModel.reset()
-//                        navController.popBackStack(SanDiegoSpotsScreen.Category.name, inclusive = false) },
-//                    modifier = Modifier
-//                        .verticalScroll(rememberScrollState())
-//                        .padding(innerPadding)
-//                )
-//            }
+
 //
 //            // Parks Screen Composable
 //            composable(route = SanDiegoSpotsScreen.Parks.name) {

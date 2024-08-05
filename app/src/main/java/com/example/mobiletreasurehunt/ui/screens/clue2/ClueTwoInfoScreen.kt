@@ -1,8 +1,4 @@
-// Author: Steven Bertolucci
-// Course: CS 492 - Mobile Application Development
-// Institution: Oregon State University
-
-package com.example.mobiletreasurehunt.ui.screens.congratulation
+package com.example.mobiletreasurehunt.ui.screens.clue2
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -33,8 +29,9 @@ import com.example.mobiletreasurehunt.data.DataSource
 import com.example.mobiletreasurehunt.data.DataSource.clue
 
 @Composable
-fun CongratulationScreen(
+fun ClueTwoInfoScreen(
     modifier: Modifier = Modifier,
+    onNextButtonClicked: () -> Unit = {},
     onCancelButtonClicked: () -> Unit = {},
 ) {
     val showDialog = remember { mutableStateOf(true) }
@@ -49,10 +46,10 @@ fun CongratulationScreen(
         AlertDialog(
             onDismissRequest = { showDialog.value = false },
             title = {
-                Text(text = "Congratulations!")
+                Text(text = "Clue 2 of 3 Completed!")
             },
             text = {
-                Text("You completed the Treasure Hunt!")
+                Text("You completed the second clue. Please read more information regarding Clue #2 before continuing on to the next clue!")
             },
             confirmButton = {
                 Button(
@@ -74,13 +71,13 @@ fun CongratulationScreen(
     ) {
 
         Text(
-            text = stringResource(R.string.clue_3_info),
+            text = stringResource(R.string.clue_2_info),
             fontWeight = FontWeight.Bold
         )
-        
+
         Spacer(modifier = Modifier.height(1.dp))
 
-        // Display the clue in a card
+        // Display the clue information in a card
         Card(
             modifier = Modifier
                 .fillMaxWidth()
@@ -91,18 +88,18 @@ fun CongratulationScreen(
                 modifier = Modifier
                     .padding(dimensionResource(R.dimen.padding_medium))
             ) {
-                Text(text = stringResource(R.string.clue_3_details))
+                Text(text = stringResource(R.string.clue_2_description))
             }
         }
 
-        Spacer(modifier = Modifier.height(500.dp))
+        Spacer(modifier = Modifier.height(272.dp))
 
-        // Home button
+        // Next Clue button
         Button(
-            onClick = onCancelButtonClicked,
+            onClick = onNextButtonClicked,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(text = stringResource(R.string.home))
+            Text(text = stringResource(R.string.next_clue))
         }
     }
 }
