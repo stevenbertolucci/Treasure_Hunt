@@ -19,5 +19,5 @@
     <string name="ok">OK</string>
     <string name="permission">App Permission</string>
     <string name="connor_quote">Quote from the legendary Fast and the Furious movie</string>
-    <string name="hint_description2">When Brian O\'Conner lost his 10-second car to Toretto in their first race together, O\'Conner said he \'almost had him\' referring that he almost beat a racing legend. Toretto put O\'Conner in his place with this iconic quote. This hint points to the location where this quote was spoken.</string>
+    <string name="hint_description2">When Brian O\'Conner lost his 10-second car to Toretto in their first race together, O\'Conner said he \'almost had him\' referring that he almost beat Toretto, a racing legend. Toretto put O\'Conner in his place with this iconic quote. This hint points to the location where this quote was spoken.</string>
 </resources>

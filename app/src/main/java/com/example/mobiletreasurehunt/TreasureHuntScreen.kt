@@ -39,6 +39,7 @@ import com.example.mobiletreasurehunt.ui.screens.clue2.ClueTwoScreen
 import com.example.mobiletreasurehunt.ui.screens.congratulation.CongratulationScreen
 import com.example.mobiletreasurehunt.ui.screens.start.StartScreen
 import com.example.mobiletreasurehunt.ui.screens.requestPermission.RequestPermissionScreen
+import com.example.mobiletreasurehunt.ui.theme.CustomBlue
 
 enum class TreasureHuntScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
@@ -62,7 +63,10 @@ fun TreasureHuntAppBar(
     CenterAlignedTopAppBar(
         title = { Text(stringResource(currentScreenTitle)) },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
-            containerColor = Color.Cyan.copy(alpha = 0.1f)
+            containerColor = CustomBlue,
+            titleContentColor = Color.White,
+            actionIconContentColor = Color.White,
+            navigationIconContentColor = Color.White
         ),
         modifier = modifier,
         navigationIcon = {

@@ -22,17 +22,6 @@ class TreasureHuntViewModel : ViewModel() {
     fun reset() {
         _uiState.value = TreasureHuntUiState()
     }
-
-    private val _locationVerified = MutableStateFlow(false)
-    val locationVerified: StateFlow<Boolean> = _locationVerified
-
-    fun verifyLocation(location: Location) {
-        _locationVerified.value = true
-    }
-
-    fun resetLocationVerification() {
-        _locationVerified.value = false
-    }
 }
 
 data class TreasureHuntUiState(

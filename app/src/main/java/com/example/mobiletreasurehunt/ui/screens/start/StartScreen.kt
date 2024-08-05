@@ -65,7 +65,7 @@ fun StartScreen(
 
                 Text(
                     text = buildAnnotatedString {
-                        append("Welcome to Treasure Hunt! \n\n\nHere, you will find clues that will lead you to a location. Keep solving clues to win a prize!\n\n\nAuthor: ")
+                        append("Welcome to Treasure Hunt! \n\n\nHere, you will find clues that will lead you to a location. Keep solving clues to reach the final destination!\n\n\nAuthor: ")
                         withStyle(style = SpanStyle(color = Color.Gray)) {
                             append("Steven Bertolucci")
                         }
@@ -77,7 +77,7 @@ fun StartScreen(
                         withStyle(style = SpanStyle(color = Color.Gray)) {
                             append("Oregon State University")
                         }
-                        append("\n\n\n\n Click the button below to start! \uD83D\uDC47")
+//                        append("\n\n\n\n Click the button below to start! \uD83D\uDC47")
                     },
                     modifier = Modifier.padding(16.dp),
                     style = MaterialTheme.typography.labelSmall.copy(fontSize = 14.sp),
@@ -92,11 +92,6 @@ fun StartScreen(
                 onClick = onStartButtonClicked,
                 Modifier
                     .widthIn(min = 250.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = lightBlue,
-                    contentColor = Color.Black
-                ),
-
                 ) {
                 Text(stringResource(R.string.start))
             }
