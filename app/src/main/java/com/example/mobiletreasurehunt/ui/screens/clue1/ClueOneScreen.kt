@@ -12,6 +12,7 @@ import android.location.Location
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -38,8 +39,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -82,7 +85,6 @@ fun ClueOneScreen(
     onSelectionChanged: (Clues.ClueNumberOne) -> Unit,
     context: Context,
 ) {
-    //var selectedItem by rememberSaveable { mutableStateOf("") }
     var showHintDialog by rememberSaveable { mutableStateOf(false) }
     var locationPermissionGranted by rememberSaveable { mutableStateOf(false) }
     val lessIntenseRed = Color(0xFFFF5555)
@@ -146,6 +148,8 @@ fun ClueOneScreen(
             .padding(dimensionResource(R.dimen.padding_medium))
     ) {
         Column {
+            val image: Painter = painterResource(id = R.drawable.brian_oconnor)
+
             // Display the clue in a card
             Card(
                 modifier = Modifier
@@ -163,7 +167,7 @@ fun ClueOneScreen(
 
             Box(
                 modifier = Modifier.fillMaxWidth(),
-                contentAlignment = Alignment.Center // Center the button within the Box
+                contentAlignment = Alignment.Center
             ) {
                 Button(
                     onClick = { showHintDialog = true },
@@ -173,9 +177,18 @@ fun ClueOneScreen(
                 }
             }
 
+            Image(
+                painter = image,
+                contentDescription = stringResource(R.string.connor_quote),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(350.dp)
+                    .padding(dimensionResource(R.dimen.padding_small))
+            )
+
             Spacer(
                 modifier = Modifier
-                    .height(400.dp),
+                    .height(50.dp),
             )
 
             // Quit button

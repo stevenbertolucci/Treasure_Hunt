@@ -149,7 +149,7 @@ fun TreasureHuntApp() {
                         val category = viewModel.uiState.value.selectedClue
                         Log.d("ClueNavigation", "Selected Clue Category: $category")
                         val nextScreen = when (category) {
-                            "\"Hector is going to be running 3 Honda Civics with spoon engines. And on top of that, he just went into Harry's, and he ordered 3 T66 turbos, with NOS... and a Motec system exhaust.\"" -> TreasureHuntScreen.Clue2Screen.name
+                            "\"I just went in there, and Hector is going to be running 3 Honda Civics with spoon engines. And on top of that, he just went into Harry's, and he ordered 3 T66 turbos, with NOS... and a Motec system exhaust.\"" -> TreasureHuntScreen.Clue2Screen.name
                             else -> TreasureHuntScreen.Clue1Screen.name
                         }
                         navController.navigate(nextScreen)

@@ -13,7 +13,8 @@
     <string name="quit">QUIT</string>
     <string name="found_it">FOUND IT!</string>
     <string name="hint_clue_1">Reveal Hint for Clue #1</string>
-    <string name="hint_description">From Fast and the Furious Movie</string>
+    <string name="hint_description">This is one of the legendary memes from The Fast and the Furious Movie. This hint points to the location of the \'He\'s a Cop!\' scene where Brian O\'Conner tries to escape alive while being interrogated by Toretto and Vince. See image.</string>
     <string name="ok">OK</string>
     <string name="permission">App Permission</string>
+    <string name="connor_quote">Quote from the legendary Fast and the Furious movie</string>
 </resources>
