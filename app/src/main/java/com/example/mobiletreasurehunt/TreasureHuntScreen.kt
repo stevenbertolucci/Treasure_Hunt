@@ -141,7 +141,7 @@ fun TreasureHuntApp() {
                 ClueOneScreen(
                     clue = DataSource.clue,
                     onCancelButtonClicked = {
-                        viewModel.reset()
+                        //viewModel.reset()
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
                     onNextButtonClicked = { clue ->
@@ -169,7 +169,7 @@ fun TreasureHuntApp() {
                     clue = DataSource.clueTwo,
                     onCancelButtonClicked = {
                         viewModel.reset()
-                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
+                        navController.popBackStack(TreasureHuntScreen.Permission.name, inclusive = false)
                     },
                     onNextButtonClicked = {
                         val nextScreen = TreasureHuntScreen.Congratulation.name

@@ -4,6 +4,8 @@
 
 package com.example.mobiletreasurehunt.model
 
+import android.health.connect.datatypes.ExerciseRoute
+import android.location.Location
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,6 +21,19 @@ class TreasureHuntViewModel : ViewModel() {
 
     fun reset() {
         _uiState.value = TreasureHuntUiState()
+    }
+
+    private val _locationVerified = MutableStateFlow(false)
+    val locationVerified: StateFlow<Boolean> = _locationVerified
+
+    fun verifyLocation(location: Location) {
+        // Add your location verification logic here
+        // If location is correct
+        _locationVerified.value = true
+    }
+
+    fun resetLocationVerification() {
+        _locationVerified.value = false
     }
 }
 
