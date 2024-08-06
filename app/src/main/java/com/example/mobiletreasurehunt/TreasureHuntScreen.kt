@@ -303,6 +303,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
+                    isStopwatchRunning = isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -345,6 +347,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
+                    isStopwatchRunning = isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -387,6 +391,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
+                    isStopwatchRunning = isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -429,6 +435,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
+                    isStopwatchRunning = isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -471,6 +479,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
+                    isStopwatchRunning = isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -513,6 +523,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
+                    isStopwatchRunning = isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -555,6 +567,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
+                    isStopwatchRunning = isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -597,6 +611,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
+                    isStopwatchRunning = isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
