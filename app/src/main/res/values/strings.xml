@@ -1,37 +1,61 @@
 <resources>
+
     <string name="app_name">Mobile Treasure Hunt</string>
+
+    <string name="home">Home</string>
     <string name="back_button">Back</string>
     <string name="cancel">Cancel</string>
     <string name="submit">Submit</string>
-    <string name="start">Start Treasure Hunt</string>
-    <string name="clue_1">Clue #1</string>
-    <string name="clue_1_info">More Information Regarding Clue #1</string>
-    <string name="clue_2">Clue #2</string>
-    <string name="clue_3">Clue #3</string>
-    <string name="clue_4">Clue #4</string>
-    <string name="clue_2_info">More Information Regarding Clue #2</string>
-    <string name="clue_3_info">More Information Regarding Clue #3</string>
-    <string name="clue_info">Information</string>
-    <string name="clue_4_description">In Breaking Bad, Walter White (in image) has cancer and his son created a website to support his dad\'s cancer treatment. Where was this scene taken place?</string>
-    <string name="clue_3_details">This scene was filmed at the famous Dodgers Stadium at 1000 Vin Scully Ave, Los Angeles, CA 90012. The parking lot was the location where Brian O\'Conner was testing out his new 10-second car.</string>
-    <string name="clue_3_description">In the opening scene of The Fast and the Furious, viewers are introduced to the main character, Brian O\'Conner and his famous green Mitsubishi Eclipse. O\'Conner was testing out his Eclipse at this location. Can you guess this location?</string>
-    <string name="clue_2_description">The race itself (where Paul loses his car) was held on Prairie Avenue in the city of Hawthorne, a good 15 miles southwest of the Produce Market. The street runs north and south, past the western edge of the Hawthorne Airport. They were racing north on Prairie, starting at Prairie and 120th Street, and finishing at Prairie and 118th Street (just south of the 105 Freeway).They also filmed some of the pre &amp; post race scenes south of 120th. \n\nReference: (https://www.seeing-stars.com/Locations/FastAndFurious.shtml)</string>
-    <string name="clue_1_description">This scene was filmed at Hector\'s Garage at 401 El Segundo Blvd, El Segundo, CA. Brian O\'Connor sneaked into Hector\'s garage for reconnaissance of stolen equipments. O\'Connor was accused of being a cop, but he slyly escaped after lying that he sneaked in to gain an advantage for the upcoming Race Wars.</string>
     <string name="next">Next</string>
     <string name="next_clue">Next Clue</string>
     <string name="quit">QUIT</string>
-    <string name="home">Home</string>
     <string name="found_it">FOUND IT!</string>
-    <string name="hint_clue_1">Reveal Hint for Clue #1</string>
-    <string name="hint_clue_2">Reveal Hint for Clue #2</string>
-    <string name="hint_clue_3">Reveal Hint for Clue #3</string>
-    <string name="hint_clue_4">Reveal Hint for Clue #4</string>
-    <string name="hint_description">This is one of the legendary memes from The Fast and the Furious Movie. This hint points to the location of the \'He\'s a Cop!\' scene where Brian O\'Conner tries to escape alive while being interrogated by Toretto and Vince. See image.</string>
     <string name="ok">OK</string>
     <string name="rules">RULES</string>
+
+    <string name="start">Start Treasure Hunt</string>
+    <string name="clue_1">Clue #1</string>
+    <string name="clue_1_info">More Information Regarding Clue #1</string>
+    <string name="clue_1_description">This scene was filmed at Hector\'s Garage at 401 El Segundo Blvd, El Segundo, CA. Brian O\'Connor sneaked into Hector\'s garage for reconnaissance of stolen equipments. O\'Connor was accused of being a cop, but he slyly escaped after lying that he sneaked in to gain an advantage for the upcoming Race Wars.</string>
+    <string name="hint_clue_1">Reveal Hint for Clue #1</string>
+    <string name="hint_description">This is one of the legendary memes from The Fast and the Furious Movie. This hint points to the location of the \'He\'s a Cop!\' scene where Brian O\'Conner tries to escape alive while being interrogated by Toretto and Vince. See image.</string>
+
+    <string name="clue_2">Clue #2</string>
+    <string name="clue_2_info">More Information Regarding Clue #2</string>
+    <string name="clue_2_description">The race itself (where Paul loses his car) was held on Prairie Avenue in the city of Hawthorne, a good 15 miles southwest of the Produce Market. The street runs north and south, past the western edge of the Hawthorne Airport. They were racing north on Prairie, starting at Prairie and 120th Street, and finishing at Prairie and 118th Street (just south of the 105 Freeway).They also filmed some of the pre &amp; post race scenes south of 120th. \n\nReference: (https://www.seeing-stars.com/Locations/FastAndFurious.shtml)</string>
+    <string name="hint_clue_2">Reveal Hint for Clue #2</string>
+    <string name="hint_description2">When Brian O\'Conner lost his 10-second car to Toretto in their first race together, O\'Conner said he \'almost had him\' referring that he almost beat Toretto, a racing legend. Toretto put O\'Conner in his place with this iconic quote. This hint points to the location where this quote was spoken.</string>
+
+    <string name="clue_3">Clue #3</string>
+    <string name="clue_3_details">This scene was filmed at the famous Dodgers Stadium at 1000 Vin Scully Ave, Los Angeles, CA 90012. The parking lot was the location where Brian O\'Conner was testing out his new 10-second car.</string>
+    <string name="clue_3_info">More Information Regarding Clue #3</string>
+    <string name="clue_3_description">In the opening scene of The Fast and the Furious, viewers are introduced to the main character, Brian O\'Conner and his famous green Mitsubishi Eclipse. O\'Conner was testing out his Eclipse at this location. Can you guess this location?</string>
+    <string name="hint_clue_3">Reveal Hint for Clue #3</string>
+
+    <string name="clue_4">Clue #4</string>
+    <string name="clue_4_description">In Breaking Bad, Walter White (in image) has cancer and his son created a website to support his dad\'s cancer treatment. Where was this scene taken place?</string>
+    <string name="hint_clue_4">Reveal Hint for Clue #4</string>
+
+    <string name="clue_info">Information</string>
+
     <string name="permission">App Permission</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <string name="walter_white">An image of Walter White for a Fundraiser</string>
     <string name="connor_quote">Quote from the legendary Fast and the Furious movie</string>
     <string name="dodgers_stadium">A picture of a famous Green Mitsubishi Eclipse that Brian O\'Conner drove at the opening scene of The Fast and The Furious.</string>
-    <string name="hint_description2">When Brian O\'Conner lost his 10-second car to Toretto in their first race together, O\'Conner said he \'almost had him\' referring that he almost beat Toretto, a racing legend. Toretto put O\'Conner in his place with this iconic quote. This hint points to the location where this quote was spoken.</string>
+
 </resources>

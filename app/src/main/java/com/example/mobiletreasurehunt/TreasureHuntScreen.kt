@@ -51,6 +51,7 @@ import com.example.mobiletreasurehunt.ui.theme.CustomBlue
 enum class TreasureHuntScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
     Permission(title = R.string.permission),
+    Rules(title = R.string.rules),
     Clue1Screen(title = R.string.clue_1),
     Clue1InfoScreen(title = R.string.clue_info),
     Clue2Screen(title = R.string.clue_2),
@@ -58,8 +59,19 @@ enum class TreasureHuntScreen(@StringRes val title: Int) {
     Clue3Screen(title =R.string.clue_3),
     Clue3InfoScreen(title = R.string.clue_info),
     Clue4Screen(title =R.string.clue_4),
+    Clue4InfoScreen(title = R.string.clue_info),
+    Clue5Screen(title = R.string.clue_1),
+    Clue5InfoScreen(title = R.string.clue_info),
+    Clue6Screen(title = R.string.clue_2),
+    Clue6InfoScreen(title = R.string.clue_info),
+    Clue7Screen(title =R.string.clue_3),
+    Clue7InfoScreen(title = R.string.clue_info),
+    Clue8Screen(title =R.string.clue_4),
+    Clue8InfoScreen(title = R.string.clue_info),
+    Clue9Screen(title = R.string.clue_2),
+    Clue9InfoScreen(title = R.string.clue_info),
+    Clue10Screen(title = R.string.clue_2),
     Congratulation(title = R.string.clue_info),
-    Rules(title = R.string.rules)
 }
 
 /**
