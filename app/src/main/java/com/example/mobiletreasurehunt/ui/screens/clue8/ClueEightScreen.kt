@@ -45,7 +45,6 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.example.mobiletreasurehunt.R
 import com.example.mobiletreasurehunt.data.DataSource.clueEight
-import com.example.mobiletreasurehunt.data.DataSource.clueThree
 import com.example.mobiletreasurehunt.haversine.Haversine
 import com.example.mobiletreasurehunt.model.Clues
 import com.google.android.gms.location.LocationServices

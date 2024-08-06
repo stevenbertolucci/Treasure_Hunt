@@ -51,7 +51,6 @@ import com.example.mobiletreasurehunt.R
 import com.example.mobiletreasurehunt.data.DataSource
 import com.example.mobiletreasurehunt.haversine.Haversine
 import com.example.mobiletreasurehunt.model.Clues
-import com.example.mobiletreasurehunt.ui.screens.requestPermission.RequestPermissionScreen
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.Task
