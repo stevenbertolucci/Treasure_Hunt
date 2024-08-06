@@ -12,4 +12,10 @@ object DataSource {
     val clueTwo = Clues.ClueNumberTwo(description = "\"Ask any racer, any real racer. It don't matter if you win by an inch or a mile. Winning's winning.\"")
     val clueThree = Clues.ClueNumberThree(description = "There is no textual clue, but there is an image below that you can investigate. Can you find out where this was taken place at?")
     val clueFour = Clues.ClueNumberFour(description = "Walter White. Father, Husband & Teacher")
+    val clueFive = Clues.ClueNumberFive(description = "Walter White. Father, Husband & Teacher")
+    val clueSix = Clues.ClueNumberSix(description = "Walter White. Father, Husband & Teacher")
+    val clueSeven = Clues.ClueNumberSeven(description = "Walter White. Father, Husband & Teacher")
+    val clueEight = Clues.ClueNumberEight(description = "Walter White. Father, Husband & Teacher")
+    val clueNine = Clues.ClueNumberNine(description = "Walter White. Father, Husband & Teacher")
+    val clueTen = Clues.ClueNumberTen(description = "Walter White. Father, Husband & Teacher")
 }

@@ -46,7 +46,7 @@ fun ClueTwoInfoScreen(
         AlertDialog(
             onDismissRequest = { showDialog.value = false },
             title = {
-                Text(text = "Clue 2 of 4 Completed!")
+                Text(text = "Clue 2 of 10 Completed!")
             },
             text = {
                 Text("You completed the second clue. Please read more information regarding Clue #2 before continuing on to the next clue!")
