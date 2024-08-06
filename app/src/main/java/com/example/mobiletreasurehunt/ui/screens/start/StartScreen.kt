@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
@@ -42,8 +41,6 @@ fun StartScreen(
     onAnotherButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-
-    val lightBlue = Color(0xFFADD8E6)
 
     Box(modifier = modifier.fillMaxSize()) {
 
@@ -78,7 +75,6 @@ fun StartScreen(
                         withStyle(style = SpanStyle(color = Color.Gray)) {
                             append("Oregon State University")
                         }
-//                        append("\n\n\n\n Click the button below to start! \uD83D\uDC47")
                     },
                     modifier = Modifier.padding(16.dp),
                     style = MaterialTheme.typography.labelSmall.copy(fontSize = 14.sp),

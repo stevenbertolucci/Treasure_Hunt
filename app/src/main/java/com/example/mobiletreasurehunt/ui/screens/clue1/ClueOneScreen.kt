@@ -56,25 +56,6 @@ import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.Task
 import kotlinx.coroutines.launch
 
-//@Composable
-//fun MainScreen() {
-//    var permissionGranted by remember { mutableStateOf(false) }
-//
-//    if (permissionGranted) {
-//        ClueOneScreen(
-//            clue = DataSource.clue,
-//            onCancelButtonClicked = {},
-//            onNextButtonClicked = {},
-//            onSelectionChanged = {},
-//            context = LocalContext.current
-//        )
-//    } else {
-//        RequestPermissionScreen(
-//            onPermissionGranted = { permissionGranted = true }
-//        )
-//    }
-//}
-
 @Composable
 fun ClueOneScreen(
     clue: Clues.ClueNumberOne,
