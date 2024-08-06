@@ -109,7 +109,7 @@ fun ClueNineScreen(
     // Location of this clue
     fun isLocationMatch(userLocation: Location?): Boolean {
 
-        val targetLocation = Haversine(34.0739, -118.2400)
+        val targetLocation = Haversine(32.6865, -80.7403)
 
         userLocation?.let {
             val userHaversineLocation = Haversine(it.latitude, it.longitude)
@@ -144,7 +144,7 @@ fun ClueNineScreen(
                 }
             }
 
-            val image: Painter = painterResource(id = R.drawable.dodger_stadium)
+            val image: Painter = painterResource(id = R.drawable.forrest_gump)
             Image(
                 painter = image,
                 contentDescription = stringResource(R.string.dodgers_stadium),
@@ -162,7 +162,7 @@ fun ClueNineScreen(
                     onClick = { showHintDialog = true },
                     modifier = Modifier.wrapContentWidth()
                 ) {
-                    Text(text = stringResource(R.string.hint_clue_3))
+                    Text(text = stringResource(R.string.hint_clue_9))
                 }
             }
 

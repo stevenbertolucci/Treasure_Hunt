@@ -109,7 +109,7 @@ fun ClueFiveScreen(
     // Location of this clue
     fun isLocationMatch(userLocation: Location?): Boolean {
 
-        val targetLocation = Haversine(34.0739, -118.2400)
+        val targetLocation = Haversine(40.7116, -74.0170)
 
         userLocation?.let {
             val userHaversineLocation = Haversine(it.latitude, it.longitude)
@@ -150,7 +150,7 @@ fun ClueFiveScreen(
                 contentDescription = stringResource(R.string.dodgers_stadium),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(180.dp)
+                    .height(220.dp)
                     .padding(dimensionResource(R.dimen.padding_small))
             )
 
@@ -162,13 +162,13 @@ fun ClueFiveScreen(
                     onClick = { showHintDialog = true },
                     modifier = Modifier.wrapContentWidth()
                 ) {
-                    Text(text = stringResource(R.string.hint_clue_3))
+                    Text(text = stringResource(R.string.hint_clue_5))
                 }
             }
 
             Spacer(
                 modifier = Modifier
-                    .height(290.dp),
+                    .height(200.dp),
             )
 
             // Quit button
@@ -225,7 +225,7 @@ fun ClueFiveScreen(
                 }
             },
             text = {
-                Text(text = stringResource(R.string.clue_3_description))
+                Text(text = stringResource(R.string.clue_5_description))
             }
         )
     }

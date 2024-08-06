@@ -109,7 +109,7 @@ fun ClueEightScreen(
     // Location of this clue
     fun isLocationMatch(userLocation: Location?): Boolean {
 
-        val targetLocation = Haversine(34.0739, -118.2400)
+        val targetLocation = Haversine(25.9583, -80.2396)
 
         userLocation?.let {
             val userHaversineLocation = Haversine(it.latitude, it.longitude)
@@ -144,7 +144,7 @@ fun ClueEightScreen(
                 }
             }
 
-            val image: Painter = painterResource(id = R.drawable.dodger_stadium)
+            val image: Painter = painterResource(id = R.drawable.ace_ventura)
             Image(
                 painter = image,
                 contentDescription = stringResource(R.string.dodgers_stadium),
@@ -162,7 +162,7 @@ fun ClueEightScreen(
                     onClick = { showHintDialog = true },
                     modifier = Modifier.wrapContentWidth()
                 ) {
-                    Text(text = stringResource(R.string.hint_clue_3))
+                    Text(text = stringResource(R.string.hint_clue_8))
                 }
             }
 
@@ -225,7 +225,7 @@ fun ClueEightScreen(
                 }
             },
             text = {
-                Text(text = stringResource(R.string.clue_3_description))
+                Text(text = stringResource(R.string.clue_8_description))
             }
         )
     }

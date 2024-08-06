@@ -42,6 +42,7 @@ import com.example.mobiletreasurehunt.ui.screens.clue2.ClueTwoInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue2.ClueTwoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue3.ClueThreeInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue3.ClueThreeScreen
+import com.example.mobiletreasurehunt.ui.screens.clue4.ClueFourInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue4.ClueFourScreen
 import com.example.mobiletreasurehunt.ui.screens.clue5.ClueFiveInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue5.ClueFiveScreen
@@ -51,10 +52,11 @@ import com.example.mobiletreasurehunt.ui.screens.clue7.ClueSevenInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue7.ClueSevenScreen
 import com.example.mobiletreasurehunt.ui.screens.clue8.ClueEightInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue8.ClueEightScreen
+import com.example.mobiletreasurehunt.ui.screens.clue9.ClueNineScreen
 import com.example.mobiletreasurehunt.ui.screens.congratulation.CongratulationScreen
-import com.example.mobiletreasurehunt.ui.screens.start.StartScreen
 import com.example.mobiletreasurehunt.ui.screens.requestPermission.RequestPermissionScreen
 import com.example.mobiletreasurehunt.ui.screens.rules.RulesScreen
+import com.example.mobiletreasurehunt.ui.screens.start.StartScreen
 import com.example.mobiletreasurehunt.ui.theme.CustomBlue
 
 enum class TreasureHuntScreen(@StringRes val title: Int) {
@@ -69,17 +71,17 @@ enum class TreasureHuntScreen(@StringRes val title: Int) {
     Clue3InfoScreen(title = R.string.clue_info),
     Clue4Screen(title =R.string.clue_4),
     Clue4InfoScreen(title = R.string.clue_info),
-    Clue5Screen(title = R.string.clue_1),
+    Clue5Screen(title = R.string.clue_5),
     Clue5InfoScreen(title = R.string.clue_info),
-    Clue6Screen(title = R.string.clue_2),
+    Clue6Screen(title = R.string.clue_6),
     Clue6InfoScreen(title = R.string.clue_info),
-    Clue7Screen(title =R.string.clue_3),
+    Clue7Screen(title =R.string.clue_7),
     Clue7InfoScreen(title = R.string.clue_info),
-    Clue8Screen(title =R.string.clue_4),
+    Clue8Screen(title = R.string.clue_8),
     Clue8InfoScreen(title = R.string.clue_info),
-    Clue9Screen(title = R.string.clue_2),
+    Clue9Screen(title = R.string.clue_9),
     Clue9InfoScreen(title = R.string.clue_info),
-    Clue10Screen(title = R.string.clue_2),
+    Clue10Screen(title = R.string.clue_10),
     Congratulation(title = R.string.clue_info),
 }
 
@@ -328,7 +330,7 @@ fun TreasureHuntApp() {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
                     onNextButtonClicked = {
-                        val nextScreen = TreasureHuntScreen.Congratulation.name
+                        val nextScreen = TreasureHuntScreen.Clue4InfoScreen.name
                         navController.navigate(nextScreen)
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
@@ -342,7 +344,7 @@ fun TreasureHuntApp() {
             // Clue #4 Info Screen Composable
             composable(route = TreasureHuntScreen.Clue4InfoScreen.name) {
 
-                ClueThreeInfoScreen(
+                ClueFourInfoScreen(
                     onNextButtonClicked = {
                         viewModel.updateClue(clue.description)
                         val category = viewModel.uiState.value.selectedClue
@@ -518,6 +520,48 @@ fun TreasureHuntApp() {
                         val nextScreen = when (category) {
                             "\"I just went in there, and Hector is going to be running 3 Honda Civics with spoon engines. And on top of that, he just went into Harry's, and he ordered 3 T66 turbos, with NOS... and a Motec system exhaust.\"" -> TreasureHuntScreen.Clue9Screen.name
                             else -> TreasureHuntScreen.Clue8Screen.name
+                        }
+                        navController.navigate(nextScreen)
+                    },
+                    onCancelButtonClicked = {
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
+                    },
+                    modifier = Modifier
+                        .verticalScroll(rememberScrollState())
+                        .padding(innerPadding)
+                )
+            }
+
+            // Clue #9 Screen Composable
+            composable(route = TreasureHuntScreen.Clue9Screen.name) {
+                ClueNineScreen(
+                    clue = DataSource.clueNine,
+                    onCancelButtonClicked = {
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
+                    },
+                    onNextButtonClicked = {
+                        val nextScreen = TreasureHuntScreen.Clue9InfoScreen.name
+                        navController.navigate(nextScreen)
+                    },
+                    onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
+                    context = LocalContext.current,
+                    modifier = Modifier
+                        .verticalScroll(rememberScrollState())
+                        .padding(innerPadding)
+                )
+            }
+
+            // Clue #9 Info Screen Composable
+            composable(route = TreasureHuntScreen.Clue9InfoScreen.name) {
+
+                ClueEightInfoScreen(
+                    onNextButtonClicked = {
+                        viewModel.updateClue(clue.description)
+                        val category = viewModel.uiState.value.selectedClue
+                        Log.d("Category", "Category: $category")
+                        val nextScreen = when (category) {
+                            "\"I just went in there, and Hector is going to be running 3 Honda Civics with spoon engines. And on top of that, he just went into Harry's, and he ordered 3 T66 turbos, with NOS... and a Motec system exhaust.\"" -> TreasureHuntScreen.Clue10Screen.name
+                            else -> TreasureHuntScreen.Clue9Screen.name
                         }
                         navController.navigate(nextScreen)
                     },
