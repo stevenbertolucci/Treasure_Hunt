@@ -149,6 +149,16 @@ fun ClueTwoScreen(
                 }
             }
 
+            val image: Painter = painterResource(id = R.drawable.winningswinning)
+            Image(
+                painter = image,
+                contentDescription = stringResource(R.string.connor_quote),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(270.dp)
+                    .padding(dimensionResource(R.dimen.padding_small))
+            )
+
             Box(
                 modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.Center
@@ -160,16 +170,6 @@ fun ClueTwoScreen(
                     Text(text = stringResource(R.string.hint_clue_2))
                 }
             }
-
-            val image: Painter = painterResource(id = R.drawable.winningswinning)
-            Image(
-                painter = image,
-                contentDescription = stringResource(R.string.connor_quote),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(270.dp)
-                    .padding(dimensionResource(R.dimen.padding_small))
-            )
 
             Spacer(
                 modifier = Modifier

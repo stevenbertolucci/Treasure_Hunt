@@ -166,6 +166,17 @@ fun ClueOneScreen(
                 }
             }
 
+            val image: Painter = painterResource(id = R.drawable.brian_oconnor)
+            Image(
+                painter = image,
+                contentDescription = stringResource(R.string.connor_quote),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(350.dp)
+                    .padding(dimensionResource(R.dimen.padding_small))
+            )
+
+
             Box(
                 modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.Center
@@ -177,16 +188,6 @@ fun ClueOneScreen(
                     Text(text = stringResource(R.string.hint_clue_1))
                 }
             }
-
-            val image: Painter = painterResource(id = R.drawable.brian_oconnor)
-            Image(
-                painter = image,
-                contentDescription = stringResource(R.string.connor_quote),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(350.dp)
-                    .padding(dimensionResource(R.dimen.padding_small))
-            )
 
             Spacer(
                 modifier = Modifier

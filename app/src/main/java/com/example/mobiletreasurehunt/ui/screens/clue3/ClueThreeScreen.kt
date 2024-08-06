@@ -147,6 +147,16 @@ fun ClueThreeScreen(
                 }
             }
 
+            val image: Painter = painterResource(id = R.drawable.dodger_stadium)
+            Image(
+                painter = image,
+                contentDescription = stringResource(R.string.dodgers_stadium),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(180.dp)
+                    .padding(dimensionResource(R.dimen.padding_small))
+            )
+
             Box(
                 modifier = Modifier.fillMaxWidth(),
                 contentAlignment = Alignment.Center
@@ -158,16 +168,6 @@ fun ClueThreeScreen(
                     Text(text = stringResource(R.string.hint_clue_3))
                 }
             }
-
-            val image: Painter = painterResource(id = R.drawable.dodger_stadium)
-            Image(
-                painter = image,
-                contentDescription = stringResource(R.string.dodgers_stadium),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(180.dp)
-                    .padding(dimensionResource(R.dimen.padding_small))
-            )
 
             Spacer(
                 modifier = Modifier

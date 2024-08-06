@@ -106,9 +106,9 @@ fun RulesScreen(
                     modifier = Modifier.size(400.dp)
                 )
                 Text(
-                    text = "Buy me a Coffee. No, that's not really me.",
+                    text = "Buy me a coffee. No, that's not really me. But really, buy me a coffee :)",
                     style = TextStyle(
-                        fontSize = 20.sp,
+                        fontSize = 18.sp,
                         fontWeight = FontWeight.Normal,
                         textAlign = TextAlign.Center
                     ),
