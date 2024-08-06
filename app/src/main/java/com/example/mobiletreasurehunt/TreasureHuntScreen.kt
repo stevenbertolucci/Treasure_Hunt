@@ -159,9 +159,6 @@ fun TreasureHuntApp() {
                             popUpTo(TreasureHuntScreen.Permission.name) { inclusive = true }
                         }
                     },
-                    modifier = Modifier
-                        .verticalScroll(rememberScrollState())
-                        .padding(innerPadding)
                 )
             }
 

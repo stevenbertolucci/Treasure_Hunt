@@ -51,6 +51,7 @@ import com.example.mobiletreasurehunt.R
 import com.example.mobiletreasurehunt.data.DataSource
 import com.example.mobiletreasurehunt.haversine.Haversine
 import com.example.mobiletreasurehunt.model.Clues
+import com.example.mobiletreasurehunt.ui.stopwatch.Stopwatch
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.Task
@@ -70,6 +71,7 @@ fun ClueOneScreen(
     val lessIntenseRed = Color(0xFFFF5555)
     val fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
     val snackbarHostState = remember { SnackbarHostState() }
+    var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
 
     val locationPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
@@ -171,7 +173,23 @@ fun ClueOneScreen(
 
             Spacer(
                 modifier = Modifier
-                    .height(70.dp),
+                    .height(10.dp),
+            )
+
+            // Stopwatch
+            Stopwatch(
+                isRunning = isStopwatchRunning,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(top = 16.dp),
+                onTimeUpdate = {
+
+                }
+            )
+
+            Spacer(
+                modifier = Modifier
+                    .height(20.dp),
             )
 
             // Quit button
