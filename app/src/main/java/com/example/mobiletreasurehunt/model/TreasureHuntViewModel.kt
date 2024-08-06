@@ -4,8 +4,6 @@
 
 package com.example.mobiletreasurehunt.model
 
-import android.health.connect.datatypes.ExerciseRoute
-import android.location.Location
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,10 +15,6 @@ class TreasureHuntViewModel : ViewModel() {
 
     fun updateClue(clue: String) {
         _uiState.value = _uiState.value.copy(selectedClue = clue)
-    }
-
-    fun reset() {
-        _uiState.value = TreasureHuntUiState()
     }
 }
 

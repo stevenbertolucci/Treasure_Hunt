@@ -40,6 +40,7 @@ import com.example.mobiletreasurehunt.ui.screens.clue1.ClueOneScreen
 import com.example.mobiletreasurehunt.ui.screens.clue2.ClueTwoInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue2.ClueTwoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue3.ClueThreeScreen
+import com.example.mobiletreasurehunt.ui.screens.clue4.ClueFourScreen
 import com.example.mobiletreasurehunt.ui.screens.congratulation.CongratulationScreen
 import com.example.mobiletreasurehunt.ui.screens.start.StartScreen
 import com.example.mobiletreasurehunt.ui.screens.requestPermission.RequestPermissionScreen
@@ -54,6 +55,7 @@ enum class TreasureHuntScreen(@StringRes val title: Int) {
     Clue2Screen(title = R.string.clue_2),
     Clue2InfoScreen(title = R.string.clue_info),
     Clue3Screen(title =R.string.clue_3),
+    Clue4Screen(title =R.string.clue_4),
     Congratulation(title = R.string.clue_info),
     Rules(title = R.string.rules)
 }
@@ -178,7 +180,7 @@ fun TreasureHuntApp() {
                         }
                         navController.navigate(nextScreen)
                     },
-                    onSelectionChanged = { clue -> viewModel.updateClue(clue.description)},
+                    onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
@@ -201,7 +203,8 @@ fun TreasureHuntApp() {
                         navController.navigate(nextScreen)
                     },
                     onCancelButtonClicked = {
-                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false) },
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
+                    },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -220,7 +223,7 @@ fun TreasureHuntApp() {
                         val nextScreen = TreasureHuntScreen.Clue2InfoScreen.name
                         navController.navigate(nextScreen)
                     },
-                    onSelectionChanged = { clue -> viewModel.updateClue(clue.description)},
+                    onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
@@ -243,7 +246,8 @@ fun TreasureHuntApp() {
                         navController.navigate(nextScreen)
                     },
                     onCancelButtonClicked = {
-                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false) },
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
+                    },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -259,10 +263,29 @@ fun TreasureHuntApp() {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
                     onNextButtonClicked = {
+                        val nextScreen = TreasureHuntScreen.Clue4Screen.name
+                        navController.navigate(nextScreen)
+                    },
+                    onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
+                    context = LocalContext.current,
+                    modifier = Modifier
+                        .verticalScroll(rememberScrollState())
+                        .padding(innerPadding)
+                )
+            }
+
+            // Clue #4 Screen Composable
+            composable(route = TreasureHuntScreen.Clue4Screen.name) {
+                ClueFourScreen(
+                    clue = DataSource.clueFour,
+                    onCancelButtonClicked = {
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
+                    },
+                    onNextButtonClicked = {
                         val nextScreen = TreasureHuntScreen.Congratulation.name
                         navController.navigate(nextScreen)
                     },
-                    onSelectionChanged = { clue -> viewModel.updateClue(clue.description)},
+                    onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
@@ -275,115 +298,15 @@ fun TreasureHuntApp() {
 
                 CongratulationScreen(
                     onCancelButtonClicked = {
-                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false) },
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
+                    },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
                 )
             }
-
-
-//
-//            // Parks Screen Composable
-//            composable(route = SanDiegoSpotsScreen.Parks.name) {
-//
-//                ChooseParksScreen(
-//                    options = DataSource.listOfParks,
-//                    onCancelButtonClicked = {
-//                        viewModel.reset()
-//                        navController.popBackStack(SanDiegoSpotsScreen.Category.name, inclusive = false)
-//                    },
-//                    onSelectionChanged = { park -> viewModel.updateSelectedPark(park as Recommendations.Parks)},
-//                    onNextButtonClicked = { navController.navigate(SanDiegoSpotsScreen.ParksInfo.name) },
-//                    modifier = Modifier
-//                        .verticalScroll(rememberScrollState())
-//                        .padding(innerPadding)
-//                )
-//            }
-//
-//            // Parks Info Screen Composable
-//            composable(route = SanDiegoSpotsScreen.ParksInfo.name) {
-//
-//                val selectedPark by viewModel.selectedPark.collectAsState()
-//
-//                ShowParksInfoScreen(
-//                    park = selectedPark,
-//                    onCancelButtonClicked = {
-//                        viewModel.reset()
-//                        navController.popBackStack(SanDiegoSpotsScreen.Category.name, inclusive = false) },
-//                    modifier = Modifier
-//                        .verticalScroll(rememberScrollState())
-//                        .padding(innerPadding)
-//                )
-//            }
-//
-//            // Sport Venues Screen Composable
-//            composable(route = SanDiegoSpotsScreen.SportsVenue.name) {
-//
-//                ChooseVenuesScreen(
-//                    options = DataSource.listOfSportVenues,
-//                    onCancelButtonClicked = {
-//                        viewModel.reset()
-//                        navController.popBackStack(SanDiegoSpotsScreen.Category.name, inclusive = false)
-//                    },
-//                    onNextButtonClicked = { navController.navigate(SanDiegoSpotsScreen.SportsVenueInfo.name) },
-//                    onSelectionChanged = { venue -> viewModel.updateSelectedVenue(venue as Recommendations.SportVenues)},
-//                    modifier = Modifier
-//                        .verticalScroll(rememberScrollState())
-//                        .padding(innerPadding)
-//                )
-//            }
-//
-//            // Sport Venues Info Screen Composable
-//            composable(route = SanDiegoSpotsScreen.SportsVenueInfo.name) {
-//
-//                val selectedVenue by viewModel.selectedVenue.collectAsState()
-//
-//                ShowVenuesInfoScreen(
-//                    venue = selectedVenue,
-//                    onCancelButtonClicked = {
-//                        viewModel.reset()
-//                        navController.popBackStack(SanDiegoSpotsScreen.Category.name, inclusive = false) },
-//                    modifier = Modifier
-//                        .verticalScroll(rememberScrollState())
-//                        .padding(innerPadding)
-//                )
-//            }
-//
-//            // Beach Screen Composable
-//            composable(route = SanDiegoSpotsScreen.Beaches.name) {
-//
-//                ChooseBeachesScreen(
-//                    options = DataSource.listOfBeaches,
-//                    onCancelButtonClicked = {
-//                        viewModel.reset()
-//                        navController.popBackStack(SanDiegoSpotsScreen.Category.name, inclusive = false)
-//                    },
-//                    onNextButtonClicked = { navController.navigate(SanDiegoSpotsScreen.BeachesInfo.name) },
-//                    onSelectionChanged = { beach -> viewModel.updateSelectedBeach(beach as Recommendations.Beaches)},
-//                    modifier = Modifier
-//                        .verticalScroll(rememberScrollState())
-//                        .padding(innerPadding)
-//                )
-//            }
-//
-//            // Beaches Info Screen Composable
-//            composable(route = SanDiegoSpotsScreen.BeachesInfo.name) {
-//
-//                val selectedBeach by viewModel.selectedBeach.collectAsState()
-//
-//                ShowBeachesInfoScreen(
-//                    beach = selectedBeach,
-//                    onCancelButtonClicked = {
-//                        viewModel.reset()
-//                        navController.popBackStack(SanDiegoSpotsScreen.Category.name, inclusive = false) },
-//                    modifier = Modifier
-//                        .verticalScroll(rememberScrollState())
-//                        .padding(innerPadding)
-//                )
-//            }
-          }
-      }
+        }
+    }
 }
 
 @Preview(showBackground = true)

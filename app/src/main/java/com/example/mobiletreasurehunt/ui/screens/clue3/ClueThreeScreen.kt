@@ -44,12 +44,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.example.mobiletreasurehunt.R
-import com.example.mobiletreasurehunt.data.DataSource
 import com.example.mobiletreasurehunt.data.DataSource.clueThree
-import com.example.mobiletreasurehunt.data.DataSource.clueTwo
 import com.example.mobiletreasurehunt.haversine.Haversine
 import com.example.mobiletreasurehunt.model.Clues
-import com.example.mobiletreasurehunt.ui.screens.requestPermission.RequestPermissionScreen
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.Task
@@ -238,7 +235,7 @@ fun ClueThreeScreen(
 @Composable
 fun PreviewClueThreeScreen() {
     ClueThreeScreen(
-        clue = DataSource.clueThree,
+        clue = clueThree,
         onCancelButtonClicked = {},
         onNextButtonClicked = {},
         onSelectionChanged = {},
