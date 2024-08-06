@@ -4,6 +4,7 @@
 
 package com.example.mobiletreasurehunt.ui.screens.start
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
@@ -93,7 +95,7 @@ fun StartScreen(
                     onStartButtonClicked()
                 },
                 Modifier
-                    .widthIn(min = 250.dp),
+                    .widthIn(min = 250.dp)
                 ) {
                 Text(stringResource(R.string.start))
             }
@@ -102,8 +104,17 @@ fun StartScreen(
 
             Button(
                 onClick = onAnotherButtonClicked,
-                Modifier
-                    .widthIn(min = 250.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.Yellow,
+                    contentColor = Color.Black
+                ),
+                modifier = Modifier
+                    .widthIn(min = 250.dp)
+                    .border(
+                        width = 2.dp,
+                        color = Color.Black,
+                        shape = RoundedCornerShape(30.dp)
+                    )
             ) {
                 Text("RULES")
             }

@@ -176,7 +176,7 @@ fun ClueTwoScreen(
 
             Spacer(
                 modifier = Modifier
-                    .height(10.dp),
+                    .height(80.dp),
             )
 
             // Stopwatch
@@ -192,7 +192,7 @@ fun ClueTwoScreen(
 
             Spacer(
                 modifier = Modifier
-                    .height(20.dp),
+                    .height(80.dp),
             )
 
             // Quit button

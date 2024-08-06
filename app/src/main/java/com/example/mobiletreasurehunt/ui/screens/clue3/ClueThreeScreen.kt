@@ -172,7 +172,7 @@ fun ClueThreeScreen(
 
             Spacer(
                 modifier = Modifier
-                    .height(10.dp),
+                    .height(80.dp),
             )
 
             // Stopwatch
@@ -188,7 +188,7 @@ fun ClueThreeScreen(
 
             Spacer(
                 modifier = Modifier
-                    .height(20.dp),
+                    .height(170.dp),
             )
 
             // Quit button
