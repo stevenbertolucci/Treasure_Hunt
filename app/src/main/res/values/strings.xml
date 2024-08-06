@@ -33,8 +33,39 @@
     <string name="hint_clue_3">Reveal Hint for Clue #3</string>
 
     <string name="clue_4">Clue #4</string>
+    <string name="clue_4_info">More Information Regarding Clue #4</string>
     <string name="clue_4_description">In Breaking Bad, Walter White (in image) has cancer and his son created a website to support his dad\'s cancer treatment. Where was this scene taken place?</string>
     <string name="hint_clue_4">Reveal Hint for Clue #4</string>
+
+    <string name="clue_5">Clue #5</string>
+    <string name="clue_5_info">More Information Regarding Clue #5</string>
+    <string name="clue_5_description">In Breaking Bad, Walter White (in image) has cancer and his son created a website to support his dad\'s cancer treatment. Where was this scene taken place?</string>
+    <string name="hint_clue_5">Reveal Hint for Clue #5</string>
+
+    <string name="clue_6">Clue #6</string>
+    <string name="clue_6_info">More Information Regarding Clue #6</string>
+    <string name="clue_6_description">In Breaking Bad, Walter White (in image) has cancer and his son created a website to support his dad\'s cancer treatment. Where was this scene taken place?</string>
+    <string name="hint_clue_6">Reveal Hint for Clue #6</string>
+
+    <string name="clue_7">Clue #7</string>
+    <string name="clue_7_info">More Information Regarding Clue #7</string>
+    <string name="clue_7_description">In Breaking Bad, Walter White (in image) has cancer and his son created a website to support his dad\'s cancer treatment. Where was this scene taken place?</string>
+    <string name="hint_clue_7">Reveal Hint for Clue #7</string>
+
+    <string name="clue_8">Clue #8</string>
+    <string name="clue_8_info">More Information Regarding Clue #8</string>
+    <string name="clue_8_description">In Breaking Bad, Walter White (in image) has cancer and his son created a website to support his dad\'s cancer treatment. Where was this scene taken place?</string>
+    <string name="hint_clue_8">Reveal Hint for Clue #8</string>
+
+    <string name="clue_9">Clue #9</string>
+    <string name="clue_9_info">More Information Regarding Clue #9</string>
+    <string name="clue_9_description">In Breaking Bad, Walter White (in image) has cancer and his son created a website to support his dad\'s cancer treatment. Where was this scene taken place?</string>
+    <string name="hint_clue_9">Reveal Hint for Clue #9</string>
+
+    <string name="clue_10">Clue #10</string>
+    <string name="clue_10_info">More Information Regarding Clue #10</string>
+    <string name="clue_10_description">In Breaking Bad, Walter White (in image) has cancer and his son created a website to support his dad\'s cancer treatment. Where was this scene taken place?</string>
+    <string name="hint_clue_10">Reveal Hint for Clue #10</string>
 
     <string name="clue_info">Information</string>
 

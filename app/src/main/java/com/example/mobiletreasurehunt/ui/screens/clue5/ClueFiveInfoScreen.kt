@@ -67,7 +67,7 @@ fun ClueFiveInfoScreen(
     ) {
 
         Text(
-            text = stringResource(R.string.clue_3_info),
+            text = stringResource(R.string.clue_5_info),
             fontWeight = FontWeight.Bold
         )
 
