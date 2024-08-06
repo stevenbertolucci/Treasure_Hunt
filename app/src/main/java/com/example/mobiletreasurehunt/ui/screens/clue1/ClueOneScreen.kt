@@ -73,7 +73,7 @@ fun ClueOneScreen(
     val lessIntenseRed = Color(0xFFFF5555)
     val fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
     val snackbarHostState = remember { SnackbarHostState() }
-    //var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
+    var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
 
     val locationPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
@@ -254,6 +254,11 @@ fun ClueOneScreen(
                 Text(text = stringResource(R.string.hint_description)) // Display the hint text
             }
         )
+    }
+
+    // Start the stopwatch when the clue is revealed
+    LaunchedEffect(clue) {
+        isStopwatchRunning = true
     }
 }
 

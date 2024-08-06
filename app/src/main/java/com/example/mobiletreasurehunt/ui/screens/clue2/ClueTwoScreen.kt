@@ -51,6 +51,7 @@ import com.example.mobiletreasurehunt.R
 import com.example.mobiletreasurehunt.data.DataSource
 import com.example.mobiletreasurehunt.haversine.Haversine
 import com.example.mobiletreasurehunt.model.Clues
+import com.example.mobiletreasurehunt.ui.stopwatch.Stopwatch
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.Task
@@ -64,12 +65,15 @@ fun ClueTwoScreen(
     onNextButtonClicked: (Clues.ClueNumberTwo) -> Unit = {},
     onSelectionChanged: (Clues.ClueNumberTwo) -> Unit,
     context: Context,
+    isStopwatchRunning: Boolean,
+    onStopwatchToggle: (Boolean) -> Unit
 ) {
     var showHintDialog by rememberSaveable { mutableStateOf(false) }
     var locationPermissionGranted by rememberSaveable { mutableStateOf(false) }
     val lessIntenseRed = Color(0xFFFF5555)
     val fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
     val snackbarHostState = remember { SnackbarHostState() }
+    var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
 
     val locationPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
@@ -172,7 +176,23 @@ fun ClueTwoScreen(
 
             Spacer(
                 modifier = Modifier
-                    .height(200.dp),
+                    .height(10.dp),
+            )
+
+            // Stopwatch
+            Stopwatch(
+                isRunning = isStopwatchRunning,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(top = 16.dp),
+                onTimeUpdate = {
+
+                }
+            )
+
+            Spacer(
+                modifier = Modifier
+                    .height(20.dp),
             )
 
             // Quit button
@@ -197,6 +217,7 @@ fun ClueTwoScreen(
                             } else {
                                 snackbarHostState.showSnackbar("User location: ${userLocation.latitude}, ${userLocation.longitude}")
                                 if (isLocationMatch(userLocation)) {
+                                    onStopwatchToggle(false)
                                     onNextButtonClicked(clue)
                                 } else {
                                     snackbarHostState.showSnackbar("Location does not match. Please try again.")
@@ -233,6 +254,11 @@ fun ClueTwoScreen(
             }
         )
     }
+
+    // Start the stopwatch when the clue is revealed
+    LaunchedEffect(clue) {
+        isStopwatchRunning = true
+    }
 }
 
 @Preview(showBackground = true)
@@ -243,6 +269,8 @@ fun PreviewClueTwoScreen() {
         onCancelButtonClicked = {},
         onNextButtonClicked = {},
         onSelectionChanged = {},
-        context = LocalContext.current
+        context = LocalContext.current,
+        isStopwatchRunning = false,
+        onStopwatchToggle = {}
     )
 }
