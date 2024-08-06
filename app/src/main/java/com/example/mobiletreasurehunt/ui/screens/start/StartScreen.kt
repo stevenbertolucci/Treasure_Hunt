@@ -39,6 +39,8 @@ import com.example.mobiletreasurehunt.R
 fun StartScreen(
     onStartButtonClicked: () -> Unit,
     onAnotherButtonClicked: () -> Unit,
+    isStopwatchRunning: Boolean,
+    onStopwatchToggle: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
 
@@ -86,7 +88,10 @@ fun StartScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             Button(
-                onClick = onStartButtonClicked,
+                onClick = {
+                    onStopwatchToggle(true)
+                    onStartButtonClicked()
+                },
                 Modifier
                     .widthIn(min = 250.dp),
                 ) {
@@ -99,7 +104,6 @@ fun StartScreen(
                 onClick = onAnotherButtonClicked,
                 Modifier
                     .widthIn(min = 250.dp),
-                //colors = ButtonDefaults.buttonColors(containerColor = lightBlue)
             ) {
                 Text("RULES")
             }
@@ -113,6 +117,8 @@ fun StartScreenPreview(){
     StartScreen(
         onStartButtonClicked = {},
         onAnotherButtonClicked = {},
+        isStopwatchRunning = false,
+        onStopwatchToggle = {},
         modifier = Modifier
             .padding(dimensionResource(R.dimen.padding_medium))
             .fillMaxSize()

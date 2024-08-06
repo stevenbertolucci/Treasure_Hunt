@@ -21,6 +21,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -134,6 +137,9 @@ fun TreasureHuntApp() {
         backStackEntry?.destination?.route ?: TreasureHuntScreen.Start.name
     )
 
+    // For stopwatch
+    var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
+
     Scaffold(
         topBar = {
 
@@ -171,6 +177,8 @@ fun TreasureHuntApp() {
                     onAnotherButtonClicked = {
                         navController.navigate(TreasureHuntScreen.Rules.name)
                     },
+                    isStopwatchRunning = isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(innerPadding)
@@ -205,6 +213,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
+                    isStopwatchRunning = isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)

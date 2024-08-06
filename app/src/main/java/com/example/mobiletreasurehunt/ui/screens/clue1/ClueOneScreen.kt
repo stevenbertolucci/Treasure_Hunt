@@ -65,13 +65,15 @@ fun ClueOneScreen(
     onNextButtonClicked: (Clues.ClueNumberOne) -> Unit = {},
     onSelectionChanged: (Clues.ClueNumberOne) -> Unit,
     context: Context,
+    isStopwatchRunning: Boolean,
+    onStopwatchToggle: (Boolean) -> Unit
 ) {
     var showHintDialog by rememberSaveable { mutableStateOf(false) }
     var locationPermissionGranted by rememberSaveable { mutableStateOf(false) }
     val lessIntenseRed = Color(0xFFFF5555)
     val fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
     val snackbarHostState = remember { SnackbarHostState() }
-    var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
+    //var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
 
     val locationPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
@@ -194,7 +196,10 @@ fun ClueOneScreen(
 
             // Quit button
             Button(
-                onClick = onCancelButtonClicked,
+                onClick = {
+                    onCancelButtonClicked()
+                    onStopwatchToggle(false)
+                },
                 colors = ButtonDefaults.buttonColors(containerColor = lessIntenseRed),
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -214,6 +219,7 @@ fun ClueOneScreen(
                             } else {
                                 snackbarHostState.showSnackbar("User location: ${userLocation.latitude}, ${userLocation.longitude}")
                                 if (isLocationMatch(userLocation)) {
+                                    onStopwatchToggle(false)
                                     onNextButtonClicked(clue)
                                 } else {
                                     snackbarHostState.showSnackbar("Location does not match. Please try again.")
@@ -259,6 +265,8 @@ fun PreviewClueOneScreen() {
         onCancelButtonClicked = {},
         onNextButtonClicked = {},
         onSelectionChanged = {},
-        context = LocalContext.current
+        context = LocalContext.current,
+        isStopwatchRunning = false,
+        onStopwatchToggle = {}
     )
 }
