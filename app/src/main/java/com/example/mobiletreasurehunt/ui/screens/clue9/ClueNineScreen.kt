@@ -225,7 +225,7 @@ fun ClueNineScreen(
                 }
             },
             text = {
-                Text(text = stringResource(R.string.clue_3_description))
+                Text(text = stringResource(R.string.clue_9_description))
             }
         )
     }

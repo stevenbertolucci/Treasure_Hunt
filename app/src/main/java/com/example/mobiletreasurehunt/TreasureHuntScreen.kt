@@ -52,6 +52,7 @@ import com.example.mobiletreasurehunt.ui.screens.clue7.ClueSevenInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue7.ClueSevenScreen
 import com.example.mobiletreasurehunt.ui.screens.clue8.ClueEightInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue8.ClueEightScreen
+import com.example.mobiletreasurehunt.ui.screens.clue9.ClueNineInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue9.ClueNineScreen
 import com.example.mobiletreasurehunt.ui.screens.congratulation.CongratulationScreen
 import com.example.mobiletreasurehunt.ui.screens.requestPermission.RequestPermissionScreen
@@ -554,7 +555,7 @@ fun TreasureHuntApp() {
             // Clue #9 Info Screen Composable
             composable(route = TreasureHuntScreen.Clue9InfoScreen.name) {
 
-                ClueEightInfoScreen(
+                ClueNineInfoScreen(
                     onNextButtonClicked = {
                         viewModel.updateClue(clue.description)
                         val category = viewModel.uiState.value.selectedClue
