@@ -39,6 +39,7 @@ import com.example.mobiletreasurehunt.ui.screens.clue1.ClueOneInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue1.ClueOneScreen
 import com.example.mobiletreasurehunt.ui.screens.clue2.ClueTwoInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue2.ClueTwoScreen
+import com.example.mobiletreasurehunt.ui.screens.clue3.ClueThreeInfoScreen
 import com.example.mobiletreasurehunt.ui.screens.clue3.ClueThreeScreen
 import com.example.mobiletreasurehunt.ui.screens.clue4.ClueFourScreen
 import com.example.mobiletreasurehunt.ui.screens.congratulation.CongratulationScreen
@@ -55,6 +56,7 @@ enum class TreasureHuntScreen(@StringRes val title: Int) {
     Clue2Screen(title = R.string.clue_2),
     Clue2InfoScreen(title = R.string.clue_info),
     Clue3Screen(title =R.string.clue_3),
+    Clue3InfoScreen(title = R.string.clue_info),
     Clue4Screen(title =R.string.clue_4),
     Congratulation(title = R.string.clue_info),
     Rules(title = R.string.rules)
@@ -263,11 +265,34 @@ fun TreasureHuntApp() {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
                     onNextButtonClicked = {
-                        val nextScreen = TreasureHuntScreen.Clue4Screen.name
+                        val nextScreen = TreasureHuntScreen.Clue3InfoScreen.name
                         navController.navigate(nextScreen)
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
+                    modifier = Modifier
+                        .verticalScroll(rememberScrollState())
+                        .padding(innerPadding)
+                )
+            }
+
+            // Clue #3 Info Screen Composable
+            composable(route = TreasureHuntScreen.Clue3InfoScreen.name) {
+
+                ClueThreeInfoScreen(
+                    onNextButtonClicked = {
+                        viewModel.updateClue(clue.description)
+                        val category = viewModel.uiState.value.selectedClue
+                        Log.d("Category", "Category: $category")
+                        val nextScreen = when (category) {
+                            "\"I just went in there, and Hector is going to be running 3 Honda Civics with spoon engines. And on top of that, he just went into Harry's, and he ordered 3 T66 turbos, with NOS... and a Motec system exhaust.\"" -> TreasureHuntScreen.Clue4Screen.name
+                            else -> TreasureHuntScreen.Clue3Screen.name
+                        }
+                        navController.navigate(nextScreen)
+                    },
+                    onCancelButtonClicked = {
+                        navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
+                    },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
