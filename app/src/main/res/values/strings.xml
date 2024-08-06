@@ -2,6 +2,7 @@
 
     <string name="app_name">Mobile Treasure Hunt</string>
 
+    <string name="start">Start Treasure Hunt</string>
     <string name="home">Home</string>
     <string name="back_button">Back</string>
     <string name="cancel">Cancel</string>
@@ -13,7 +14,6 @@
     <string name="ok">OK</string>
     <string name="rules">RULES</string>
 
-    <string name="start">Start Treasure Hunt</string>
     <string name="clue_1">Clue #1</string>
     <string name="clue_1_info">More Information Regarding Clue #1</string>
     <string name="clue_1_description">This scene was filmed at Hector\'s Garage at 401 El Segundo Blvd, El Segundo, CA. Brian O\'Connor sneaked into Hector\'s garage for reconnaissance of stolen equipments. O\'Connor was accused of being a cop, but he slyly escaped after lying that he sneaked in to gain an advantage for the upcoming Race Wars.</string>
