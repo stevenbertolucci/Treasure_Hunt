@@ -43,6 +43,7 @@ import com.example.mobiletreasurehunt.ui.screens.clue3.ClueThreeScreen
 import com.example.mobiletreasurehunt.ui.screens.congratulation.CongratulationScreen
 import com.example.mobiletreasurehunt.ui.screens.start.StartScreen
 import com.example.mobiletreasurehunt.ui.screens.requestPermission.RequestPermissionScreen
+import com.example.mobiletreasurehunt.ui.screens.rules.RulesScreen
 import com.example.mobiletreasurehunt.ui.theme.CustomBlue
 
 enum class TreasureHuntScreen(@StringRes val title: Int) {
@@ -53,7 +54,8 @@ enum class TreasureHuntScreen(@StringRes val title: Int) {
     Clue2Screen(title = R.string.clue_2),
     Clue2InfoScreen(title = R.string.clue_info),
     Clue3Screen(title =R.string.clue_3),
-    Congratulation(title = R.string.clue_info)
+    Congratulation(title = R.string.clue_info),
+    Rules(title = R.string.rules)
 }
 
 /**
@@ -141,6 +143,18 @@ fun TreasureHuntApp() {
                     onStartButtonClicked = {
                         navController.navigate(TreasureHuntScreen.Clue1Screen.name)
                     },
+                    onAnotherButtonClicked = {
+                        navController.navigate(TreasureHuntScreen.Rules.name)
+                    },
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(innerPadding)
+                )
+            }
+
+            // Rules Screen Composable
+            composable(route = TreasureHuntScreen.Rules.name) {
+                RulesScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(innerPadding)

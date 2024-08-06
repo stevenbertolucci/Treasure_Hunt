@@ -39,6 +39,7 @@ import com.example.mobiletreasurehunt.R
 @Composable
 fun StartScreen(
     onStartButtonClicked: () -> Unit,
+    onAnotherButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
 
@@ -95,6 +96,17 @@ fun StartScreen(
                 ) {
                 Text(stringResource(R.string.start))
             }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Button(
+                onClick = onAnotherButtonClicked,
+                Modifier
+                    .widthIn(min = 250.dp),
+                //colors = ButtonDefaults.buttonColors(containerColor = lightBlue)
+            ) {
+                Text("RULES")
+            }
         }
     }
 }
@@ -104,6 +116,7 @@ fun StartScreen(
 fun StartScreenPreview(){
     StartScreen(
         onStartButtonClicked = {},
+        onAnotherButtonClicked = {},
         modifier = Modifier
             .padding(dimensionResource(R.dimen.padding_medium))
             .fillMaxSize()
