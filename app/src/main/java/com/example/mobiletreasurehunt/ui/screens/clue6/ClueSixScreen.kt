@@ -144,7 +144,7 @@ fun ClueSixScreen(
                 }
             }
 
-            val image: Painter = painterResource(id = R.drawable.dodger_stadium)
+            val image: Painter = painterResource(id = R.drawable.the_rock)
             Image(
                 painter = image,
                 contentDescription = stringResource(R.string.dodgers_stadium),
