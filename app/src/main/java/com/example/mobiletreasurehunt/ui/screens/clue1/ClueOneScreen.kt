@@ -28,6 +28,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
@@ -73,9 +74,11 @@ fun ClueOneScreen(
 ) {
     var showHintDialog by rememberSaveable { mutableStateOf(false) }
     var locationPermissionGranted by rememberSaveable { mutableStateOf(false) }
+    var showAlertDialog by rememberSaveable { mutableStateOf(false) }
+    var alertDialogMessage by rememberSaveable { mutableStateOf("") }
+    var isAlertDialogLoading by rememberSaveable { mutableStateOf(false) }
     val lessIntenseRed = Color(0xFFFF5555)
     val fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
-    val snackbarHostState = remember { SnackbarHostState() }
     var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
 
     val locationPermissionLauncher = rememberLauncherForActivityResult(
@@ -211,17 +214,24 @@ fun ClueOneScreen(
             val coroutineScope = rememberCoroutineScope()
             Button(
                 onClick = {
+                    alertDialogMessage = "Verifying your location. Please wait..."
+                    isAlertDialogLoading = true
+                    showAlertDialog = true
+
                     getCurrentLocation { userLocation ->
                         coroutineScope.launch {
                             if (userLocation == null) {
-                                snackbarHostState.showSnackbar("Failed to retrieve location. Please ensure location services are enabled and try again.")
+                                alertDialogMessage = "Failed to retrieve location. Please ensure location services are enabled and try again."
+                                isAlertDialogLoading = false
+                                showAlertDialog = true
                             } else {
-                                snackbarHostState.showSnackbar("User location: ${userLocation.latitude}, ${userLocation.longitude}")
                                 if (isLocationMatch(userLocation)) {
                                     onStopwatchToggle(false)
                                     onNextButtonClicked(clue)
                                 } else {
-                                    snackbarHostState.showSnackbar("Location does not match. Please try again.")
+                                    alertDialogMessage = "Location does not match. Please try again."
+                                    isAlertDialogLoading = false
+                                    showAlertDialog = true
                                 }
                             }
                         }
@@ -260,10 +270,21 @@ fun ClueOneScreen(
 
         }
 
-        SnackbarHost(
-            hostState = snackbarHostState,
-            modifier = Modifier.align(Alignment.Center)
-        )
+        if (showAlertDialog) {
+            AlertDialog(
+                onDismissRequest = { showAlertDialog = false },
+                confirmButton = {
+                    if (isAlertDialogLoading) {
+                        CircularProgressIndicator(modifier = Modifier.padding(16.dp))
+                    } else {
+                        Button(onClick = { showAlertDialog = false }) {
+                            Text(text = stringResource(R.string.ok))
+                        }
+                    }
+                },
+                text = { Text(text = alertDialogMessage) }
+            )
+        }
     }
 
     if (showHintDialog) {
