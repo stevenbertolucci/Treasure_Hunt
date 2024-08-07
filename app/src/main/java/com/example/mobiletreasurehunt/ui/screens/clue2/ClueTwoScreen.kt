@@ -207,17 +207,6 @@ fun ClueTwoScreen(
                     .height(80.dp),
             )
 
-            // Quit button
-            Button(
-                onClick = onCancelButtonClicked,
-                colors = ButtonDefaults.buttonColors(containerColor = lessIntenseRed),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(text = stringResource(R.string.quit))
-            }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
             // Found It! button
             val coroutineScope = rememberCoroutineScope()
             Button(
@@ -238,9 +227,32 @@ fun ClueTwoScreen(
                         }
                     }
                 },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .border(
+                        width = 4.dp,
+                        color = Color.Black,
+                        shape = RoundedCornerShape(22.dp)
+                    )
             ) {
                 Text(text = stringResource(R.string.found_it))
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // Quit button
+            Button(
+                onClick = onCancelButtonClicked,
+                colors = ButtonDefaults.buttonColors(containerColor = lessIntenseRed),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .border(
+                        width = 4.dp,
+                        color = Color.Black,
+                        shape = RoundedCornerShape(22.dp)
+                    )
+            ) {
+                Text(text = stringResource(R.string.quit))
             }
         }
 
