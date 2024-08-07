@@ -9,6 +9,7 @@ import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -154,8 +156,13 @@ fun ClueSevenScreen(
                 contentDescription = stringResource(R.string.dodgers_stadium),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(270.dp)
+                    .height(230.dp)
                     .padding(dimensionResource(R.dimen.padding_small))
+            )
+
+            Spacer(
+                modifier = Modifier
+                    .height(14.dp)
             )
 
             Box(
@@ -164,7 +171,17 @@ fun ClueSevenScreen(
             ) {
                 Button(
                     onClick = { showHintDialog = true },
-                    modifier = Modifier.wrapContentWidth()
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color.Yellow,
+                        contentColor = Color.Black
+                    ),
+                    modifier = Modifier
+                        .wrapContentWidth()
+                        .border(
+                            width = 3.dp,
+                            color = Color.Black,
+                            shape = RoundedCornerShape(22.dp)
+                        )
                 ) {
                     Text(text = stringResource(R.string.hint_clue_7))
                 }
@@ -172,7 +189,7 @@ fun ClueSevenScreen(
 
             Spacer(
                 modifier = Modifier
-                    .height(10.dp),
+                    .height(90.dp),
             )
 
             // Stopwatch
@@ -188,7 +205,7 @@ fun ClueSevenScreen(
 
             Spacer(
                 modifier = Modifier
-                    .height(20.dp),
+                    .height(120.dp),
             )
 
             // Quit button
