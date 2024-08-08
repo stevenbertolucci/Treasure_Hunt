@@ -87,7 +87,7 @@ fun ClueFourInfoScreen(
                 modifier = Modifier
                     .padding(dimensionResource(R.dimen.padding_medium))
             ) {
-                Text(text = stringResource(R.string.clue_3_details))
+                Text(text = stringResource(R.string.clue_4_details))
             }
         }
 
