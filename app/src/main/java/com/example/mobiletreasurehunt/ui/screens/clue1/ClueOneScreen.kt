@@ -21,7 +21,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
@@ -29,14 +28,11 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -74,11 +70,11 @@ fun ClueOneScreen(
 ) {
     var showHintDialog by rememberSaveable { mutableStateOf(false) }
     var locationPermissionGranted by rememberSaveable { mutableStateOf(false) }
+    val lessIntenseRed = Color(0xFFFF5555)
+    val fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
     var showAlertDialog by rememberSaveable { mutableStateOf(false) }
     var alertDialogMessage by rememberSaveable { mutableStateOf("") }
     var isAlertDialogLoading by rememberSaveable { mutableStateOf(false) }
-    val lessIntenseRed = Color(0xFFFF5555)
-    val fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
     var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
 
     val locationPermissionLauncher = rememberLauncherForActivityResult(
@@ -298,7 +294,7 @@ fun ClueOneScreen(
                 }
             },
             text = {
-                Text(text = stringResource(R.string.hint_description)) // Display the hint text
+                Text(text = stringResource(R.string.hint_description))
             }
         )
     }
