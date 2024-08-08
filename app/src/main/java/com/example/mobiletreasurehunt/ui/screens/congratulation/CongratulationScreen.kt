@@ -96,7 +96,7 @@ fun CongratulationScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(500.dp))
+        Spacer(modifier = Modifier.height(540.dp))
 
         // Home button
         Button(

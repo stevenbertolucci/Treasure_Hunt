@@ -91,7 +91,7 @@ fun ClueFourInfoScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(500.dp))
+        Spacer(modifier = Modifier.height(380.dp))
 
         // Next Clue button
         Button(

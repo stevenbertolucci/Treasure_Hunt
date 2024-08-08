@@ -91,7 +91,7 @@ fun ClueNineInfoScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(500.dp))
+        Spacer(modifier = Modifier.height(490.dp))
 
         // Next Clue button
         Button(

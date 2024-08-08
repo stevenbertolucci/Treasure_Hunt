@@ -92,7 +92,7 @@ fun ClueEightInfoScreen(
         }
 
         Spacer(modifier = Modifier
-            .height(500.dp))
+            .height(420.dp))
 
         // Next Clue button
         Button(
