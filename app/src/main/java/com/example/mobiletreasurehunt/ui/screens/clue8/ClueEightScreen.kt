@@ -71,6 +71,7 @@ fun ClueEightScreen(
     var showAlertDialog by rememberSaveable { mutableStateOf(false) }
     var alertDialogMessage by rememberSaveable { mutableStateOf("") }
     var isAlertDialogLoading by rememberSaveable { mutableStateOf(false) }
+    var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
 
     val locationPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
@@ -296,7 +297,7 @@ fun ClueEightScreen(
 
     // Start the stopwatch when the clue is revealed
     LaunchedEffect(clue) {
-        onStopwatchToggle(true)
+        isStopwatchRunning = true
     }
 }
 
