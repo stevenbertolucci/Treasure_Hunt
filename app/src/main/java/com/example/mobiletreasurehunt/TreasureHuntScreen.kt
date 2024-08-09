@@ -137,9 +137,6 @@ fun TreasureHuntApp() {
         backStackEntry?.destination?.route ?: TreasureHuntScreen.Start.name
     )
 
-    // For stopwatch
-    var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
-
     Scaffold(
         topBar = {
 
@@ -177,8 +174,8 @@ fun TreasureHuntApp() {
                     onAnotherButtonClicked = {
                         navController.navigate(TreasureHuntScreen.Rules.name)
                     },
-                    isStopwatchRunning = isStopwatchRunning,
-                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
+                    isStopwatchRunning = viewModel.isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> viewModel.toggleStopwatch(isRunning) },
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(innerPadding)
@@ -213,8 +210,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
-                    isStopwatchRunning = isStopwatchRunning,
-                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
+                    isStopwatchRunning = viewModel.isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> viewModel.toggleStopwatch(isRunning) },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -258,8 +255,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
-                    isStopwatchRunning = isStopwatchRunning,
-                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
+                    isStopwatchRunning = viewModel.isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> viewModel.toggleStopwatch(isRunning) },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -303,8 +300,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
-                    isStopwatchRunning = isStopwatchRunning,
-                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
+                    isStopwatchRunning = viewModel.isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> viewModel.toggleStopwatch(isRunning) },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -347,8 +344,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
-                    isStopwatchRunning = isStopwatchRunning,
-                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
+                    isStopwatchRunning = viewModel.isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> viewModel.toggleStopwatch(isRunning) },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -391,8 +388,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
-                    isStopwatchRunning = isStopwatchRunning,
-                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
+                    isStopwatchRunning = viewModel.isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> viewModel.toggleStopwatch(isRunning) },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -435,8 +432,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
-                    isStopwatchRunning = isStopwatchRunning,
-                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
+                    isStopwatchRunning = viewModel.isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> viewModel.toggleStopwatch(isRunning) },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -479,8 +476,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
-                    isStopwatchRunning = isStopwatchRunning,
-                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
+                    isStopwatchRunning = viewModel.isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> viewModel.toggleStopwatch(isRunning) },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -523,8 +520,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
-                    isStopwatchRunning = isStopwatchRunning,
-                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
+                    isStopwatchRunning = viewModel.isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> viewModel.toggleStopwatch(isRunning) },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -567,8 +564,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
-                    isStopwatchRunning = isStopwatchRunning,
-                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
+                    isStopwatchRunning = viewModel.isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> viewModel.toggleStopwatch(isRunning) },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -611,8 +608,8 @@ fun TreasureHuntApp() {
                     },
                     onSelectionChanged = { clue -> viewModel.updateClue(clue.description) },
                     context = LocalContext.current,
-                    isStopwatchRunning = isStopwatchRunning,
-                    onStopwatchToggle = { isRunning -> isStopwatchRunning = isRunning },
+                    isStopwatchRunning = viewModel.isStopwatchRunning,
+                    onStopwatchToggle = { isRunning -> viewModel.toggleStopwatch(isRunning) },
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
