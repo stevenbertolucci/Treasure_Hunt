@@ -108,7 +108,7 @@ fun ClueOneInfoScreen(
                 .align(Alignment.CenterHorizontally)
                 .padding(top = 16.dp),
             onTimeUpdate = {
-
+                // Needs to be finished
             }
         )
 

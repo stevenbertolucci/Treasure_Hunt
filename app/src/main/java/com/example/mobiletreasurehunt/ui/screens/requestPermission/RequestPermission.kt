@@ -1,6 +1,11 @@
 // Author: Steven Bertolucci
 // Course: CS 492 - Mobile Application Development
 // Institution: Oregon State University
+// Citations:
+// I had to research more on how to request location permission because the provided canvas link
+// for permissions were not very clear. The link below helped me and I used similar approach for
+// lines 33-43 in this program
+// https://medium.com/@rzmeneghelo/how-to-request-permissions-in-jetpack-compose-a-step-by-step-guide-7ce4b7782bd7
 
 package com.example.mobiletreasurehunt.ui.screens.requestPermission
 
