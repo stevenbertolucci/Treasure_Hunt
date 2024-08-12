@@ -1,3 +1,9 @@
+// Author: Steven Bertolucci
+// Course: CS 492 - Mobile Application Development
+// Institution: Oregon State University
+// This code is taken from the provided file on Canvas that allows us to integrate this
+// code into our project
+
 package com.example.mobiletreasurehunt.haversine
 
 import kotlin.math.*
