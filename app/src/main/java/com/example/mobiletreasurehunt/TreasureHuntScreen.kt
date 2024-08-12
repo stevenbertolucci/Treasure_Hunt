@@ -238,6 +238,7 @@ fun TreasureHuntApp() {
                     onCancelButtonClicked = {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
+                    isStopwatchRunning = isStopwatchRunning,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -283,6 +284,7 @@ fun TreasureHuntApp() {
                     onCancelButtonClicked = {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
+                    isStopwatchRunning = isStopwatchRunning,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -328,6 +330,7 @@ fun TreasureHuntApp() {
                     onCancelButtonClicked = {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
+                    isStopwatchRunning = isStopwatchRunning,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -372,6 +375,7 @@ fun TreasureHuntApp() {
                     onCancelButtonClicked = {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
+                    isStopwatchRunning = isStopwatchRunning,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -416,6 +420,7 @@ fun TreasureHuntApp() {
                     onCancelButtonClicked = {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
+                    isStopwatchRunning = isStopwatchRunning,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -460,6 +465,7 @@ fun TreasureHuntApp() {
                     onCancelButtonClicked = {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
+                    isStopwatchRunning = isStopwatchRunning,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -504,6 +510,7 @@ fun TreasureHuntApp() {
                     onCancelButtonClicked = {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
+                    isStopwatchRunning = isStopwatchRunning,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -548,6 +555,7 @@ fun TreasureHuntApp() {
                     onCancelButtonClicked = {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
+                    isStopwatchRunning = isStopwatchRunning,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -592,6 +600,7 @@ fun TreasureHuntApp() {
                     onCancelButtonClicked = {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
+                    isStopwatchRunning = isStopwatchRunning,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)
@@ -626,6 +635,7 @@ fun TreasureHuntApp() {
                     onCancelButtonClicked = {
                         navController.popBackStack(TreasureHuntScreen.Start.name, inclusive = false)
                     },
+                    isStopwatchRunning = isStopwatchRunning,
                     modifier = Modifier
                         .verticalScroll(rememberScrollState())
                         .padding(innerPadding)

@@ -214,14 +214,14 @@ fun ClueOneScreen(
                     isAlertDialogLoading = true
                     showAlertDialog = true
 
-                    getCurrentLocation { userLocation ->
+                    getCurrentLocation { location ->
                         coroutineScope.launch {
-                            if (userLocation == null) {
+                            if (location == null) {
                                 alertDialogMessage = "Failed to retrieve location. Please ensure location services are enabled and try again."
                                 isAlertDialogLoading = false
                                 showAlertDialog = true
                             } else {
-                                if (isLocationMatch(userLocation)) {
+                                if (isLocationMatch(location)) {
                                     onStopwatchToggle(false)
                                     onNextButtonClicked(clue)
                                 } else {

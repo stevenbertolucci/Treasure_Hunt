@@ -26,11 +26,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.mobiletreasurehunt.R
+import com.example.mobiletreasurehunt.ui.stopwatch.Stopwatch
 
 @Composable
 fun ClueFourInfoScreen(
     modifier: Modifier = Modifier,
     onNextButtonClicked: () -> Unit = {},
+    isStopwatchRunning: Boolean,
     onCancelButtonClicked: () -> Unit = {},
 ) {
     val showDialog = remember { mutableStateOf(true) }
@@ -91,7 +93,18 @@ fun ClueFourInfoScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(380.dp))
+        // Stopwatch
+        Stopwatch(
+            isRunning = isStopwatchRunning,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(top = 16.dp),
+            onTimeUpdate = {
+
+            }
+        )
+
+        Spacer(modifier = Modifier.height(340.dp))
 
         // Next Clue button
         Button(

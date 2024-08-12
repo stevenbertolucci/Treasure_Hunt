@@ -16,8 +16,11 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,14 +29,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.mobiletreasurehunt.R
+import com.example.mobiletreasurehunt.ui.stopwatch.Stopwatch
 
 @Composable
 fun ClueOneInfoScreen(
     modifier: Modifier = Modifier,
     onNextButtonClicked: () -> Unit = {},
+    isStopwatchRunning: Boolean,
     onCancelButtonClicked: () -> Unit = {},
 ) {
     val showDialog = remember { mutableStateOf(true) }
+    //var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
 
     // For alert dialog
     LaunchedEffect(Unit) {
@@ -91,7 +97,18 @@ fun ClueOneInfoScreen(
             }
         }
 
-        Spacer(modifier = Modifier.height(420.dp))
+        // Stopwatch
+        Stopwatch(
+            isRunning = isStopwatchRunning,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(top = 16.dp),
+            onTimeUpdate = {
+
+            }
+        )
+
+        Spacer(modifier = Modifier.height(400.dp))
 
         // Next Clue button
         Button(
