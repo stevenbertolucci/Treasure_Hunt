@@ -296,7 +296,6 @@ fun ClueTwoScreen(
         )
     }
 
-    // Start the stopwatch when the clue is revealed
     LaunchedEffect(clue) {
         isStopwatchRunning = true
     }

@@ -39,14 +39,14 @@ fun RulesScreen(
 
     LazyColumn(
         state = rememberLazyListState(),
-        modifier = modifier.padding(16.dp) // Add some padding if needed
+        modifier = modifier.padding(16.dp)
     ) {
         item {
             Text(
                 text = "TREASURE HUNT RULES",
                 style = TextStyle(
                     fontSize = 30.sp,
-                    fontWeight = FontWeight.Bold, // Set the title text to bold
+                    fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center
                 ),
                 modifier = Modifier

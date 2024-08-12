@@ -1,6 +1,10 @@
 // Author: Steven Bertolucci
 // Course: CS 492 - Mobile Application Development
 // Institution: Oregon State University
+// Citations:
+// I attempted to implemented rememberSavable for the stopwatch, from this document:
+// https://developer.android.com/develop/ui/compose/state-saving
+// Didn't have time to finish it.
 
 package com.example.mobiletreasurehunt.ui.screens.clue1
 
@@ -299,7 +303,6 @@ fun ClueOneScreen(
         )
     }
 
-    // Start the stopwatch when the clue is revealed
     LaunchedEffect(clue) {
         isStopwatchRunning = true
     }

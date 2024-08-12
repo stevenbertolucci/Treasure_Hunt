@@ -34,7 +34,7 @@ fun Stopwatch(
                 while (isRunning) {
                     elapsedTime = System.currentTimeMillis() - startTime
                     onTimeUpdate(elapsedTime)
-                    kotlinx.coroutines.delay(1000L) // Update every second
+                    kotlinx.coroutines.delay(1000L)
                 }
             }
         } else {
