@@ -69,8 +69,8 @@ fun ClueOneScreen(
     onNextButtonClicked: (Clues.ClueNumberOne) -> Unit = {},
     onSelectionChanged: (Clues.ClueNumberOne) -> Unit,
     context: Context,
-    isStopwatchRunning: Boolean,
-    onStopwatchToggle: (Boolean) -> Unit
+    //isStopwatchRunning: Boolean,
+    //onStopwatchToggle: (Boolean) -> Unit
 ) {
     var showHintDialog by rememberSaveable { mutableStateOf(false) }
     var locationPermissionGranted by rememberSaveable { mutableStateOf(false) }
@@ -79,7 +79,7 @@ fun ClueOneScreen(
     var showAlertDialog by rememberSaveable { mutableStateOf(false) }
     var alertDialogMessage by rememberSaveable { mutableStateOf("") }
     var isAlertDialogLoading by rememberSaveable { mutableStateOf(false) }
-    var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
+    //var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
 
     val locationPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
@@ -194,16 +194,16 @@ fun ClueOneScreen(
                     .height(10.dp),
             )
 
-            // Stopwatch
-            Stopwatch(
-                isRunning = isStopwatchRunning,
-                modifier = Modifier
-                    .align(Alignment.CenterHorizontally)
-                    .padding(top = 16.dp),
-                onTimeUpdate = {
-                    // Needs to be finished
-                }
-            )
+//            // Stopwatch
+//            Stopwatch(
+//                isRunning = isStopwatchRunning,
+//                modifier = Modifier
+//                    .align(Alignment.CenterHorizontally)
+//                    .padding(top = 16.dp),
+//                onTimeUpdate = {
+//                    // Needs to be finished
+//                }
+//            )
 
             Spacer(
                 modifier = Modifier
@@ -226,7 +226,7 @@ fun ClueOneScreen(
                                 showAlertDialog = true
                             } else {
                                 if (isLocationMatch(location)) {
-                                    onStopwatchToggle(false)
+                                    //onStopwatchToggle(false)
                                     onNextButtonClicked(clue)
                                 } else {
                                     alertDialogMessage = "Location does not match. Please try again."
@@ -254,7 +254,7 @@ fun ClueOneScreen(
             Button(
                 onClick = {
                     onCancelButtonClicked()
-                    onStopwatchToggle(false)
+                    //onStopwatchToggle(false)
                 },
                 colors = ButtonDefaults.buttonColors(containerColor = lessIntenseRed),
                 modifier = Modifier
@@ -303,9 +303,9 @@ fun ClueOneScreen(
         )
     }
 
-    LaunchedEffect(clue) {
-        isStopwatchRunning = true
-    }
+//    LaunchedEffect(clue) {
+//        isStopwatchRunning = true
+//    }
 }
 
 @Preview(showBackground = true)
@@ -317,7 +317,7 @@ fun PreviewClueOneScreen() {
         onNextButtonClicked = {},
         onSelectionChanged = {},
         context = LocalContext.current,
-        isStopwatchRunning = false,
-        onStopwatchToggle = {}
+//        isStopwatchRunning = false,
+//        onStopwatchToggle = {}
     )
 }

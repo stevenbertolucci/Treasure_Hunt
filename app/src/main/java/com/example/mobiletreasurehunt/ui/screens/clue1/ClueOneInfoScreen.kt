@@ -39,7 +39,7 @@ import com.example.mobiletreasurehunt.ui.stopwatch.Stopwatch
 fun ClueOneInfoScreen(
     modifier: Modifier = Modifier,
     onNextButtonClicked: () -> Unit = {},
-    isStopwatchRunning: Boolean,
+    //isStopwatchRunning: Boolean,
     onCancelButtonClicked: () -> Unit = {},
 ) {
     val showDialog = remember { mutableStateOf(true) }
@@ -101,16 +101,16 @@ fun ClueOneInfoScreen(
             }
         }
 
-        // Stopwatch
-        Stopwatch(
-            isRunning = isStopwatchRunning,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(top = 16.dp),
-            onTimeUpdate = {
-                // Needs to be finished
-            }
-        )
+//        // Stopwatch
+//        Stopwatch(
+//            isRunning = isStopwatchRunning,
+//            modifier = Modifier
+//                .align(Alignment.CenterHorizontally)
+//                .padding(top = 16.dp),
+//            onTimeUpdate = {
+//                // Needs to be finished
+//            }
+//        )
 
         Spacer(modifier = Modifier.height(400.dp))
 
