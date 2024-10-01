@@ -41,7 +41,7 @@ import com.example.mobiletreasurehunt.R
 fun StartScreen(
     onStartButtonClicked: () -> Unit,
     onAnotherButtonClicked: () -> Unit,
-    isStopwatchRunning: Boolean,
+    //isStopwatchRunning: Boolean,
     onStopwatchToggle: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -128,7 +128,7 @@ fun StartScreenPreview(){
     StartScreen(
         onStartButtonClicked = {},
         onAnotherButtonClicked = {},
-        isStopwatchRunning = false,
+        //isStopwatchRunning = false,
         onStopwatchToggle = {},
         modifier = Modifier
             .padding(dimensionResource(R.dimen.padding_medium))

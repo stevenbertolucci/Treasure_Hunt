@@ -37,7 +37,7 @@ import com.example.mobiletreasurehunt.ui.stopwatch.Stopwatch
 @Composable
 fun CongratulationScreen(
     modifier: Modifier = Modifier,
-    isStopwatchRunning: Boolean,
+    //isStopwatchRunning: Boolean,
     onCancelButtonClicked: () -> Unit = {},
 ) {
     val showDialog = remember { mutableStateOf(true) }
@@ -98,16 +98,16 @@ fun CongratulationScreen(
             }
         }
 
-        // Stopwatch
-        Stopwatch(
-            isRunning = isStopwatchRunning,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(top = 16.dp),
-            onTimeUpdate = {
-
-            }
-        )
+//        // Stopwatch
+//        Stopwatch(
+//            isRunning = isStopwatchRunning,
+//            modifier = Modifier
+//                .align(Alignment.CenterHorizontally)
+//                .padding(top = 16.dp),
+//            onTimeUpdate = {
+//
+//            }
+//        )
 
         Spacer(modifier = Modifier.height(510.dp))
 

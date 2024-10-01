@@ -65,8 +65,8 @@ fun ClueSixScreen(
     onNextButtonClicked: (Clues.ClueNumberSix) -> Unit = {},
     onSelectionChanged: (Clues.ClueNumberSix) -> Unit,
     context: Context,
-    isStopwatchRunning: Boolean,
-    onStopwatchToggle: (Boolean) -> Unit
+//    isStopwatchRunning: Boolean,
+//    onStopwatchToggle: (Boolean) -> Unit
 ) {
     var showHintDialog by rememberSaveable { mutableStateOf(false) }
     var locationPermissionGranted by rememberSaveable { mutableStateOf(false) }
@@ -75,7 +75,7 @@ fun ClueSixScreen(
     var showAlertDialog by rememberSaveable { mutableStateOf(false) }
     var alertDialogMessage by rememberSaveable { mutableStateOf("") }
     var isAlertDialogLoading by rememberSaveable { mutableStateOf(false) }
-    var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
+    //var isStopwatchRunning by rememberSaveable { mutableStateOf(false) }
 
     val locationPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
@@ -190,17 +190,17 @@ fun ClueSixScreen(
                 modifier = Modifier
                     .height(50.dp),
             )
-
-            // Stopwatch
-            Stopwatch(
-                isRunning = isStopwatchRunning,
-                modifier = Modifier
-                    .align(Alignment.CenterHorizontally)
-                    .padding(top = 16.dp),
-                onTimeUpdate = {
-
-                }
-            )
+//
+//            // Stopwatch
+//            Stopwatch(
+//                isRunning = isStopwatchRunning,
+//                modifier = Modifier
+//                    .align(Alignment.CenterHorizontally)
+//                    .padding(top = 16.dp),
+//                onTimeUpdate = {
+//
+//                }
+//            )
 
             Spacer(
                 modifier = Modifier
@@ -223,7 +223,7 @@ fun ClueSixScreen(
                                 showAlertDialog = true
                             } else {
                                 if (isLocationMatch(userLocation)) {
-                                    onStopwatchToggle(false)
+                                    //onStopwatchToggle(false)
                                     onNextButtonClicked(clue)
                                 } else {
                                     alertDialogMessage = "Location does not match. Please try again."
@@ -251,7 +251,7 @@ fun ClueSixScreen(
             Button(
                 onClick = {
                     onCancelButtonClicked()
-                    onStopwatchToggle(false)
+                    //onStopwatchToggle(false)
                 },
                 colors = ButtonDefaults.buttonColors(containerColor = lessIntenseRed),
                 modifier = Modifier
@@ -299,9 +299,9 @@ fun ClueSixScreen(
         )
     }
 
-    LaunchedEffect(clue) {
-        isStopwatchRunning = true
-    }
+//    LaunchedEffect(clue) {
+//        isStopwatchRunning = true
+//    }
 }
 
 @Preview(showBackground = true)
@@ -313,7 +313,7 @@ fun PreviewClueSixScreen() {
         onNextButtonClicked = {},
         onSelectionChanged = {},
         context = LocalContext.current,
-        isStopwatchRunning = false,
-        onStopwatchToggle = {}
+//        isStopwatchRunning = false,
+//        onStopwatchToggle = {}
     )
 }
